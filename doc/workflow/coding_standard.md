@@ -208,7 +208,7 @@ default:
 
 ### 3.2 Variable Declarations and Initialization
 
-#### Var.1 Declare each variable on a separate line.
+##### Var.1 Declare each variable on a separate line.
 
 ##### Var.2 Avoid abbraviations, short, unclear or hard to understand/remember variable names whenever possible.
 
