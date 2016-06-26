@@ -45,8 +45,8 @@ Rectangle {
     }
 }
 ```
-##### Rule 1.3 Grouped logically related properties.
-##### Rule 1.4 Put properties and functions for internal usage into QtObject to avoid changing outside.
+##### Rule 1.3. Grouped logically related properties.
+##### Rule 1.4. Put properties and functions for internal usage into QtObject to avoid changing outside.
 ``` js
 Rectangle {
   id: myRect
@@ -58,13 +58,14 @@ Rectangle {
   }
 }
 ```
-##### Rule 1.5 All "magic" numbers and text names should be move to "readonly" properties
+##### Rule 1.5. All "magic" numbers and text names should be move to "readonly" properties
 ```js
 Rectangle {
    readonly property int meaningOfLife: 42
    readonly property string stateName: "stateName"
 }
 ```
+##### Rule 1.6. Each "*.qml" file should have only one top level (Root) element.
 
 ###2. Groped properties
 ##### Rule 2.1. Use group notation for group properties instead of dot notation.
