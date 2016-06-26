@@ -45,6 +45,12 @@ Rectangle {
     }
 }
 ```
+##### Rule 1.3 Grouped logically related properties.
+##### Rule 1.4 Put internal object properties and functions into QtObject object to avoid changing outside
+``` js
+Rectangle {
+}
+```
 
 ###2. Groped properties
 ##### Rule 2.1. Use group notation for group properties instead of dot notation.
@@ -83,10 +89,16 @@ Text {
 ###3. Code Formatting
 ####3.1 Naming convention
 #####Rule 3.1.1. Use camel case style for properties, java script functions, java script variables, signals, ids names.
+#####Rule 3.1.2. All names should start with lower case letter.
+#####Rule 3.1.3. All names should have logical meaning. Avoid abbreviation and single letter names.
 ####3.2 Brackets style
-#####Rule 3.2.1 Open bracket should be in the same line as condition
+#####Rule 3.2.1 Open bracket should be in the same line as expression or object name
 ``` js
 //Bad example
+  Rectangle
+  {
+  }
+  
   if (isTrue) 
   {
     //Do thomething
@@ -102,6 +114,9 @@ Text {
   }
   
 //Good example
+  Rectangle {
+  }
+  
   if (isTrue) {
     //Do thomething
   } else {
@@ -112,4 +127,31 @@ Text {
     //Important calculation
   }
 ```
-####3.3 Whitespaces
+#####Rule 3.2.2 Do not use semicolon if there is single or simple expression
+``` js
+function printText() {
+  console.log("Hello")
+}
+//Bad example
+MouseArea {
+  onClicked : {
+    printText()
+  }
+}
+
+//Good example
+MouseArea {
+  onClicked : printText()
+}
+```
+#### 3.3 Semicolons
+#####Rule 3.3.1 Avoid to use semicolons in QML code where it is possible.
+```js
+function myFunction() {
+  var firstVar = 1
+  var secondVar = 2
+  return firstVar + secondVar
+}
+```
+###4. QML Files naming
+##### Rule 4.1. All QML files shoul be name in camel case style and name shoul begin with capital leter.
