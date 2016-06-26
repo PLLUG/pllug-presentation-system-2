@@ -14,4 +14,5 @@
 
 #####Rule 1.2. All above-mentioned groups should be separate with empty line
 
-
+``` qml
+```
