@@ -7,4 +7,5 @@
 * [Workflow](doc/workflow/workflow.md)
    * [Coding Standard](doc/workflow/coding_standard.md)
    * [Git Best Practices](doc/workflow/git_best_practices.md)
+   * Coding Standard QML
 
