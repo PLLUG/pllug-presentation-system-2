@@ -169,4 +169,7 @@ function myFunction() {
 }
 ```
 ###4. QML Files naming
-##### Rule 4.1. All QML files shoul be name in camel case style and name shoul begin with capital leter.
+##### Rule 4.1. All QML files should be name in camel case style and name should begin with capital letter.
+
+###5.Best Practices and Advises
+##### Rule 5.1. Try to avoid heavy calculation and data manipulation in QML/Java Script code. Use QML for UI purpose. For heavy operation use C++.
