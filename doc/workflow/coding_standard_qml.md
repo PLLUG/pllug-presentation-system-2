@@ -16,7 +16,7 @@
 
 #####Rule 1.2. All above-mentioned groups should be separate with empty line
 
-``` qml
+``` js
 Rectangle {
     id: myButton                                               
     
@@ -49,7 +49,7 @@ Rectangle {
 ###2. Groped properties
 ##### Rule 2.1. Use group notation for group properties instead of dot notation.
 
-``` qml
+``` js
 //Bad example
 Rectangle {
   anchor.top: parent.top
@@ -80,5 +80,36 @@ Text {
   }
 }
 ```
-###3. Code style
-#####Rule 3.1. 
+###3. Code Formatting
+####3.1 Naming convention
+#####Rule 3.1.1. Use camel case style for properties, java script functions, java script variables, signals, ids names.
+####3.2 Brackets style
+#####Rule 3.2.1 Open bracket should be in the same line as condition
+``` js
+//Bad example
+  if (isTrue) 
+  {
+    //Do thomething
+  }
+  else
+  {
+    //Do thomething else
+  }
+  
+  function myFunction (parameter) 
+  {
+    //Important calculation
+  }
+  
+//Good example
+  if (isTrue) {
+    //Do thomething
+  } else {
+    //Do thomething else
+  }
+  
+  function myFunction (parameter) {
+    //Important calculation
+  }
+```
+####3.3 Whitespaces
