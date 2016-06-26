@@ -15,4 +15,31 @@
 #####Rule 1.2. All above-mentioned groups should be separate with empty line
 
 ``` qml
+Rectangle {
+    id: myButton                                               
+    
+    property alias text: buttonText.text
+
+    signal clicked
+
+    color: "red"
+    height: 100
+    width: 250
+
+    Text {                                             
+        id: buttonText
+        
+        anchors.centerIn: parent
+    }
+    
+    MouseArea {
+        id: mouseArea
+        
+        anchor.fill: parent
+        
+        onClicked: {
+            clicked()
+        }
+    }
+}
 ```
