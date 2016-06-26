@@ -46,9 +46,23 @@ Rectangle {
 }
 ```
 ##### Rule 1.3 Grouped logically related properties.
-##### Rule 1.4 Put internal object properties and functions into QtObject object to avoid changing outside
+##### Rule 1.4 Put properties and functions for internal usage into QtObject to avoid changing outside.
 ``` js
 Rectangle {
+  id: myRect
+  
+  //Visible only inside "myRect"
+  QtObject {
+    id: internal
+    property string someInternalText: "Hello"
+  }
+}
+```
+##### Rule 1.5 All "magic" numbers and text names should be move to "readonly" properties
+```js
+Rectangle {
+   readonly property int meaningOfLife: 42
+   readonly property string stateName: "stateName"
 }
 ```
 
@@ -88,7 +102,7 @@ Text {
 ```
 ###3. Code Formatting
 ####3.1 Naming convention
-#####Rule 3.1.1. Use camel case style for properties, java script functions, java script variables, signals, ids names.
+#####Rule 3.1.1. Use camel case style for properties, java script functions, java script variables, signals, ids.
 #####Rule 3.1.2. All names should start with lower case letter.
 #####Rule 3.1.3. All names should have logical meaning. Avoid abbreviation and single letter names.
 ####3.2 Brackets style
