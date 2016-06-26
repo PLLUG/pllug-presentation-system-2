@@ -2,7 +2,7 @@
 
 ## 1. QML document structure
 
-Basic document and elements structure should be ordering like this:
+Rule 1. Basic document and elements structure should be ordering like this:
 * id
 * new property declarations
 * new signal declarations
