@@ -2,7 +2,7 @@
 
 ###1. QML document structure
 
-#####Rule 1.1. Basic document and elements structure should be order like this:
+#####Rule 1.1. Basic document and elements structure should be ordered like this:
 * Id
 * New property declarations
 * New signal declarations
@@ -14,26 +14,34 @@
 * Connections
 * Others
 
-#####Rule 1.2. All above-mentioned groups should be separate with empty line
-
 ``` js
 Rectangle {
     id: myButton                                               
     
+    //New property declarations
     property alias text: buttonText.text
 
+    //New signal declarations
     signal clicked
+    
+    //Java Script functions
+    function printHello() {
+        console.log("Hello, from myButton!")
+    }
 
+    //Element's property initialization
     color: "red"
     height: 100
     width: 250
 
+    //Child element 1
     Text {                                             
         id: buttonText
         
         anchors.centerIn: parent
     }
     
+    //Child element 2
     MouseArea {
         id: mouseArea
         
@@ -43,8 +51,34 @@ Rectangle {
             clicked()
         }
     }
+    
+    //States
+    states: [
+        State {
+          name: "default"
+        },
+        State {
+          name: "hovered"
+        }
+    ]
+    
+    //Transition
+    transitions: [
+      Transition {
+        from: "default"
+        to: "hovered"
+      }
+    ]
+    
+    //Connections
+    Connections {
+      target: someObject
+      onSomeObjectAction: console.log("Hello, someObject!");
+    }
 }
 ```
+
+##### Rule 1.2. All above-mentioned groups should be separated with empty line.
 ##### Rule 1.3. Grouped logically related properties.
 ##### Rule 1.4. Put properties and functions for internal usage into QtObject to avoid changing outside.
 ``` js
@@ -58,15 +92,13 @@ Rectangle {
   }
 }
 ```
-##### Rule 1.5. All "magic" numbers and text names should be move to "readonly" properties
+##### Rule 1.5. All "magic" numbers and text names should be moved to "readonly" properties
 ```js
 Rectangle {
    readonly property int meaningOfLife: 42
    readonly property string stateName: "stateName"
 }
 ```
-##### Rule 1.6. Each "*.qml" file should have only one top level (Root) element.
-
 ###2. Groped properties
 ##### Rule 2.1. Use group notation for group properties instead of dot notation.
 
@@ -142,7 +174,7 @@ Text {
     //Important calculation
   }
 ```
-#####Rule 3.2.2 Do not use semicolon if there is single or simple expression
+#####Rule 3.2.2 Do not use curly braces, if there is single or simple expression
 ``` js
 function printText() {
   console.log("Hello")
