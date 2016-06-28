@@ -2,7 +2,7 @@
 
 ###1. QML document structure
 
-#####Rule 1.1. Basic document and elements structure should be ordered like this:
+#####Structure 1.1. Basic document and elements structure should be ordered like this:
 * Id
 * New property declarations
 * New signal declarations
@@ -78,9 +78,8 @@ Rectangle {
 }
 ```
 
-##### Rule 1.2. All above-mentioned groups should be separated with empty line.
-##### Rule 1.3. Grouped logically related properties.
-##### Rule 1.4. Put properties and functions for internal usage into QtObject to avoid changing outside.
+##### Structure 1.2. All above-mentioned groups should be separated with empty line.
+##### Structure 1.3. Put properties and functions for internal usage into QtObject to avoid changing outside.
 ``` js
 Rectangle {
   id: myRect
@@ -92,7 +91,7 @@ Rectangle {
   }
 }
 ```
-##### Rule 1.5. All "magic" numbers and text names should be moved to "readonly" properties
+##### Structure 1.4. All "magic" numbers and text names should be moved to "readonly" properties
 ```js
 Rectangle {
    readonly property int meaningOfLife: 42
@@ -100,7 +99,7 @@ Rectangle {
 }
 ```
 ###2. Groped properties
-##### Rule 2.1. Use group notation for group properties instead of dot notation.
+##### Groped 2.1. Use group notation for group properties instead of dot notation.
 
 ``` js
 //Bad example
@@ -135,11 +134,11 @@ Text {
 ```
 ###3. Code Formatting
 ####3.1 Naming convention
-#####Rule 3.1.1. Use camel case style for properties, java script functions, java script variables, signals, ids.
-#####Rule 3.1.2. All names should start with lower case letter.
-#####Rule 3.1.3. All names should have logical meaning. Avoid abbreviation and single letter names.
+#####Naming 3.1.1. Use camel case style for properties, java script functions, java script variables, signals, ids.
+#####Naming 3.1.2. All names should start with lower case letter.
+#####Naming 3.1.3. All names should have logical meaning. Avoid abbreviation and single letter names.
 ####3.2 Brackets style
-#####Rule 3.2.1 Open bracket should be in the same line as expression or object name
+#####Brackets 3.2.1 Open bracket should be in the same line as expression or object name
 ``` js
 //Bad example
   Rectangle
@@ -174,7 +173,7 @@ Text {
     //Important calculation
   }
 ```
-#####Rule 3.2.2 Do not use curly braces, if there is single or simple expression
+#####Brackets 3.2.2 Do not use curly braces, if there is single or simple expression
 ``` js
 function printText() {
   console.log("Hello")
@@ -192,7 +191,7 @@ MouseArea {
 }
 ```
 #### 3.3 Semicolons
-#####Rule 3.3.1 Avoid to use semicolons in QML code where it is possible.
+#####Semicolons 3.3.1 Avoid to use semicolons in QML code where it is possible.
 ```js
 function myFunction() {
   var firstVar = 1
@@ -201,7 +200,7 @@ function myFunction() {
 }
 ```
 ###4. QML Files naming
-##### Rule 4.1. All QML files should be name in camel case style and name should begin with capital letter.
+##### Files 4.1. All QML files should be name in camel case style and name should begin with capital letter.
 
-###5.Best Practices and Advises
-##### Rule 5.1. Try to avoid heavy calculation and data manipulation in QML/Java Script code. Use QML for UI purpose. For heavy operation use C++.
+###5.Best Practices and Advice
+##### Advice 5.1. Try to avoid heavy calculation and data manipulation in QML/Java Script code. Use QML for UI purpose. For heavy operation use C++.
