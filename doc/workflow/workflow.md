@@ -1,6 +1,6 @@
 # Workflow
   To start working with project, please read carefully following rules.
-  #### Working process
+  ## Working process
   1.  PPS 2.0 is Qt application. You will need to install [Qt Framework (Open Source)](https://www.qt.io/download-open-source/) to work with source code. Note, that Qt version must be 5.6.1 or higher.
   2.  To start working on issue and apply your changes to project after, please read ["Git Best Practices -> 2. Developer Workflow"](https://alexchmykhalo.gitbooks.io/pllug-presentation-system-2-documents-and-specifi/content/doc/workflow/git_best_practices.html).
   3.  You should use our ["Coding Standard"](https://alexchmykhalo.gitbooks.io/pllug-presentation-system-2-documents-and-specifi/content/doc/workflow/coding_standard.html) and ["Coding Standard QML"](), when working with project, to keep order, same style and readability of source code. If something do not mentioned in our rules, always follow ["C++ Core Guidelines"](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md).
