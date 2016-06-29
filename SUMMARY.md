@@ -8,5 +8,6 @@
    * [UC4 Navigate presentation using navigation panel](doc/requirements/uc4_navigate_presentation_using_navigation_panel.md)
 * [Workflow](doc/workflow/workflow.md)
    * [Coding Standard](doc/workflow/coding_standard.md)
+   * [Coding Standard QML](doc/workflow/coding_standard_qml.md)
    * [Git Best Practices](doc/workflow/git_best_practices.md)
 
