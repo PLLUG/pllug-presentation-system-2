@@ -10,4 +10,8 @@
    * [Coding Standard](doc/workflow/coding_standard.md)
    * [Coding Standard QML](doc/workflow/coding_standard_qml.md)
    * [Git Best Practices](doc/workflow/git_best_practices.md)
+* [Tests](doc/tests/tests.md)
+   * [H1 header](tests/data/markdown/h1_header.md)
+   * [Chapter](tests/data/markdown/chapter.md)
+   * [Two Chapters](tests/data/markdown/two_chapters.md)
 
