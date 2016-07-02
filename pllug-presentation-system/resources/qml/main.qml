@@ -2,6 +2,8 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 
+import "./TestScreen"
+
 ApplicationWindow {
     visible: true
     width: 640

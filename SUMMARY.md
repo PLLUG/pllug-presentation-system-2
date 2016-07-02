@@ -13,4 +13,5 @@
    * [Git Best Practices](doc/workflow/git_best_practices.md)
 * [Specs](doc/specs/specs.md)
    * [Markdown Conversion](doc/specs/markdown_conversion.md)
+   * [Project Structure](doc/specs/project_structure.md)
 
