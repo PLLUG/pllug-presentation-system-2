@@ -27,7 +27,7 @@ In general, document structure should be converted to presentation structure dur
 
 1. Search for separators and divide document onto parts between separators.
 2. For each part - search for H1 headers and divide onto slides with H1 headers. Each H1 header will be title of the slide. Body of the H1 section will be content of the slide.
-3. Divide further if slide content too long. To do that - move rest of the content (that could not be placed on slide) to the separate slide and duplicate previous slide title. Repeat until all content will be placed on the slides.
+3. Divide further if slide content too long. To do that - move rest of the content (that could not be placed on slide) to the separate slide and duplicate previous slide title. Repeat until all content will be placed on the slides. NOTE: this is also the case when we have no headers\separators - we will divide text into slides until all text will be placed in presentation (but slides will have no title).
 
 
 
