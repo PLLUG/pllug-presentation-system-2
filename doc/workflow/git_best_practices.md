@@ -71,6 +71,8 @@ You should be able to look at commit description and understand changes in gener
 ` small fixes `
 
 For more bad examples look here: http://whatthecommit.com/ (F5 for new one)
+### Git.4: Commits often.
+You should commit your changes every time, when you completed some small logical part of your task. 
 
 ***
 
