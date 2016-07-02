@@ -15,3 +15,11 @@ build_script:
     qmake CONFIG+=release
 
     nmake
+
+    cd %APPVEYOR_BUILD_FOLDER%\tests
+
+    qmake CONFIG+=release
+
+    nmake
+
+    nmake tests
