@@ -11,4 +11,6 @@
    * [Coding Standard](doc/workflow/coding_standard.md)
    * [Coding Standard QML](doc/workflow/coding_standard_qml.md)
    * [Git Best Practices](doc/workflow/git_best_practices.md)
+* [Specs](doc/specs/specs.md)
+   * [Markdown Conversion](doc/specs/markdown_conversion.md)
 
