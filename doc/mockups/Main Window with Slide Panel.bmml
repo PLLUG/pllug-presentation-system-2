@@ -1,0 +1,165 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1160" measuredH="803" mockupW="1026" mockupH="769">
+  <controls>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Component" x="134" y="34" w="1025" h="768" measuredW="1025" measuredH="768" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="0" y="0" w="1024" h="768">
+          <text>Presentation%20name</text>
+          <verticalScrollbar>false</verticalScrollbar>
+        </override>
+        <override controlID="1" x="0" y="22" w="1025" h="50"/>
+        <override controlID="2" x="9" y="28" w="48" h="36"/>
+        <override controlID="-1"/>
+        <src>./assets/New%20Symbol%20Library%202.bmml#AppWindow</src>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Button" x="197" y="62" w="48" h="35" measuredW="48" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>columns%7Csmall</icon>
+        <state>selected</state>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::ButtonBar" x="519" y="745" w="-1" h="-1" measuredW="255" measuredH="34" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>-1</selectedIndex>
+        <size>20</size>
+        <text>%3C%3C%2C%20%3C%2C%201%20of%204%2C%20%3E%2C%20%3E%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Component" x="134" y="156" w="1020" h="525" measuredW="1020" measuredH="525" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/New%20Symbol%20Library%202.bmml#Slide%20Content</src>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::ModalScreen" x="134" y="105" w="1026" h="698" measuredW="320" measuredH="240" zOrder="4" locked="false" isInGroup="-1"/>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Canvas" x="134" y="103" w="310" h="697" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1"/>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Canvas" x="177" y="140" w="224" h="139" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>2848996</borderColor>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Canvas" x="177" y="140" w="34" h="31" measuredW="100" measuredH="70" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>2848996</borderColor>
+        <color>2848996</color>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Label" x="189" y="141" w="-1" h="-1" measuredW="10" measuredH="28" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>1</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Component" x="177" y="141" w="223" h="136" measuredW="223" measuredH="136" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="0" y="0" w="223" h="77">
+          <size>12</size>
+          <text>Lorem%20Ipsum</text>
+        </override>
+        <override controlID="1" x="81" y="24" w="61" h="67"/>
+        <override controlID="2" x="26" y="102" w="170" h="34">
+          <size>8</size>
+          <text>%5BLorem%20ipsum%5D%28http%3A//lipsum.com/%29%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit.%20Quisque%20accumsan%20dolor%20quis%20mi%20volutpat%20viverra.%20Vestibulum%20ante%20ipsum%20primis%20in%20faucibus%20orci%20luctus%20et%20ultrices%20posuere%20cubilia%20Curae%3B%20Donec%20sollicitudin%20sodales%20libero%20et%20feugiat.%20Duis%20porttitor%20tortor%20lectus%2C%20ac%20interdum%20ex%20rutrum%20non.%20Fusce%20tempus%20hendrerit%20nunc%2C%20nec%20pulvinar%20mi%20rutrum%20sit%20amet.%20Quisque%20urna%20nisl%2C%20placerat%20non%20sem%20et%2C%20dignissim%20tempor%20nunc.%20Sed%20sed%20leo%20sem.%20Sed%20aliquam%20arcu%20dolor%2C%20vitae%20accumsan%20justo%20maximus%20at.%20</text>
+        </override>
+        <override controlID="-1"/>
+        <src>./assets/New%20Symbol%20Library%202.bmml#Slide%20Content</src>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Canvas" x="176" y="302" w="224" h="139" measuredW="100" measuredH="70" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>0</borderColor>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Component" x="177" y="303" w="222" h="136" measuredW="222" measuredH="136" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="0" y="0" w="222" h="77">
+          <size>12</size>
+          <text>Lorem%20Ipsum</text>
+        </override>
+        <override controlID="1" x="80" y="24" w="62" h="67"/>
+        <override controlID="2" x="25" y="102" w="171" h="34">
+          <size>8</size>
+          <text>%5BLorem%20ipsum%5D%28http%3A//lipsum.com/%29%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit.%20Quisque%20accumsan%20dolor%20quis%20mi%20volutpat%20viverra.%20Vestibulum%20ante%20ipsum%20primis%20in%20faucibus%20orci%20luctus%20et%20ultrices%20posuere%20cubilia%20Curae%3B%20Donec%20sollicitudin%20sodales%20libero%20et%20feugiat.%20Duis%20porttitor%20tortor%20lectus%2C%20ac%20interdum%20ex%20rutrum%20non.%20Fusce%20tempus%20hendrerit%20nunc%2C%20nec%20pulvinar%20mi%20rutrum%20sit%20amet.%20Quisque%20urna%20nisl%2C%20placerat%20non%20sem%20et%2C%20dignissim%20tempor%20nunc.%20Sed%20sed%20leo%20sem.%20Sed%20aliquam%20arcu%20dolor%2C%20vitae%20accumsan%20justo%20maximus%20at.%20</text>
+        </override>
+        <override controlID="-1"/>
+        <src>./assets/New%20Symbol%20Library%202.bmml#Slide%20Content</src>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Canvas" x="176" y="302" w="34" h="31" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>0</borderColor>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="188" y="303" w="-1" h="-1" measuredW="13" measuredH="28" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::Canvas" x="177" y="465" w="224" h="139" measuredW="100" measuredH="70" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>0</borderColor>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::Component" x="178" y="466" w="222" h="136" measuredW="222" measuredH="136" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="0" y="0" w="222" h="77">
+          <size>12</size>
+          <text>Lorem%20Ipsum</text>
+        </override>
+        <override controlID="1" x="80" y="24" w="62" h="67"/>
+        <override controlID="2" x="25" y="102" w="171" h="34">
+          <size>8</size>
+          <text>%5BLorem%20ipsum%5D%28http%3A//lipsum.com/%29%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit.%20Quisque%20accumsan%20dolor%20quis%20mi%20volutpat%20viverra.%20Vestibulum%20ante%20ipsum%20primis%20in%20faucibus%20orci%20luctus%20et%20ultrices%20posuere%20cubilia%20Curae%3B%20Donec%20sollicitudin%20sodales%20libero%20et%20feugiat.%20Duis%20porttitor%20tortor%20lectus%2C%20ac%20interdum%20ex%20rutrum%20non.%20Fusce%20tempus%20hendrerit%20nunc%2C%20nec%20pulvinar%20mi%20rutrum%20sit%20amet.%20Quisque%20urna%20nisl%2C%20placerat%20non%20sem%20et%2C%20dignissim%20tempor%20nunc.%20Sed%20sed%20leo%20sem.%20Sed%20aliquam%20arcu%20dolor%2C%20vitae%20accumsan%20justo%20maximus%20at.%20</text>
+        </override>
+        <override controlID="-1"/>
+        <src>./assets/New%20Symbol%20Library%202.bmml#Slide%20Content</src>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Canvas" x="177" y="465" w="34" h="31" measuredW="100" measuredH="70" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>0</borderColor>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::Label" x="189" y="466" w="-1" h="-1" measuredW="13" measuredH="28" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>3</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Canvas" x="177" y="632" w="224" h="139" measuredW="100" measuredH="70" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>0</borderColor>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Component" x="178" y="633" w="222" h="136" measuredW="222" measuredH="136" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="0" y="0" w="222" h="77">
+          <size>12</size>
+          <text>Lorem%20Ipsum</text>
+        </override>
+        <override controlID="1" x="80" y="24" w="62" h="67"/>
+        <override controlID="2" x="25" y="102" w="171" h="34">
+          <size>8</size>
+          <text>%5BLorem%20ipsum%5D%28http%3A//lipsum.com/%29%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit.%20Quisque%20accumsan%20dolor%20quis%20mi%20volutpat%20viverra.%20Vestibulum%20ante%20ipsum%20primis%20in%20faucibus%20orci%20luctus%20et%20ultrices%20posuere%20cubilia%20Curae%3B%20Donec%20sollicitudin%20sodales%20libero%20et%20feugiat.%20Duis%20porttitor%20tortor%20lectus%2C%20ac%20interdum%20ex%20rutrum%20non.%20Fusce%20tempus%20hendrerit%20nunc%2C%20nec%20pulvinar%20mi%20rutrum%20sit%20amet.%20Quisque%20urna%20nisl%2C%20placerat%20non%20sem%20et%2C%20dignissim%20tempor%20nunc.%20Sed%20sed%20leo%20sem.%20Sed%20aliquam%20arcu%20dolor%2C%20vitae%20accumsan%20justo%20maximus%20at.%20</text>
+        </override>
+        <override controlID="-1"/>
+        <src>./assets/New%20Symbol%20Library%202.bmml#Slide%20Content</src>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Canvas" x="177" y="632" w="34" h="31" measuredW="100" measuredH="70" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>0</borderColor>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::Label" x="189" y="633" w="-1" h="-1" measuredW="14" measuredH="28" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>4</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
