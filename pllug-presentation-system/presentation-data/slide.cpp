@@ -15,7 +15,7 @@ Slide::Slide()
  */
 Slide::~Slide()
 {
-
+    qDeleteAll(mElementsList);
 }
 
 /*!
@@ -36,20 +36,21 @@ Slide &Slide::operator=(const Slide &other)
     return  *this;
 }
 
+
 /*!
- * \brief Move constructor.
+ * \brief Returns number of elements on the slide.
+ * \return Number of elements.
  */
-Slide::Slide(Slide &&other)
+int Slide::elementsCount() const
 {
-    Q_UNUSED(other)
+    return mElementsList.size();
 }
 
 /*!
- * \brief Move assigment.
+ * \brief Places presentation element on a slide.
+ * \param element Element to be placed.
  */
-Slide &Slide::operator=(Slide &&other)
+void Slide::addElement(std::unique_ptr<PresentationElement> element)
 {
-    Q_UNUSED(other)
-
-    return *this;
+    mElementsList.append(element.release());
 }

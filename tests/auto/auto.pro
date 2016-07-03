@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
 
-SUBDIRS += presentation
+SUBDIRS += presentation \
+    slide
 
 # Curtom make target for all running available tests
 tests.CONFIG = recursive

@@ -1,5 +1,8 @@
 #include "presentation.h"
 
+#include <utility>
+#include <algorithm>
+
 #include <QtGlobal>
 
 /*!
@@ -15,7 +18,7 @@ Presentation::Presentation()
  */
 Presentation::~Presentation()
 {
-
+    qDeleteAll(mSlideList);
 }
 
 /*!
@@ -23,7 +26,11 @@ Presentation::~Presentation()
  */
 Presentation::Presentation(const Presentation &other)
 {
-    Q_UNUSED(other)
+    for (const auto &slide: other.mSlideList)
+    {
+        Slide *newSlide = new Slide(*slide);
+        mSlideList.push_back(newSlide);
+    }
 }
 
 /*!
@@ -31,27 +38,25 @@ Presentation::Presentation(const Presentation &other)
  */
 Presentation& Presentation::operator=(const Presentation &other)
 {
-    Q_UNUSED(other)
-
+    Presentation tmp(other);
+    mSlideList.swap(tmp.mSlideList);
     return *this;
 }
 
 /*!
- * \brief Move constructor.
+ * \brief Returns number of slides in presentation.
+ * \return Number of slides.
  */
-Presentation::Presentation(Presentation&& other)
+int Presentation::slideCount() const
 {
-    Q_UNUSED(other)
+    return mSlideList.size();
 }
 
 /*!
- * \brief Move assigment.
+ * \brief Appends slide to the end of presentation. Presentation takes ownership of slide.
+ * \param slide Slide to be added.
  */
-Presentation &Presentation::operator=(Presentation &&other)
+void Presentation::appendSlide(std::unique_ptr<Slide> slide)
 {
-    Q_UNUSED(other)
-
-    return *this;
+    mSlideList.push_back(slide.release());
 }
-
-

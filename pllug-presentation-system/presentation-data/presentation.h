@@ -1,6 +1,12 @@
 #ifndef PRESENTATION_H
 #define PRESENTATION_H
 
+#include <memory>
+
+#include <QVector>
+
+#include "slide.h"
+
 /*!
  * \brief The Presentation class is an abstraction for presentation document.
  *
@@ -16,8 +22,12 @@ public:
     Presentation(const Presentation& other);
     Presentation& operator=(const Presentation& other);
 
-    Presentation(Presentation&& other);
-    Presentation& operator=(Presentation&& other);
+    int slideCount() const;
+
+    void appendSlide(std::unique_ptr<Slide> slide);
+
+private:
+    QVector<Slide *> mSlideList;
 };
 
 #endif // PRESENTATION_H

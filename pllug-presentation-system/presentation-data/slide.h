@@ -1,6 +1,12 @@
 #ifndef SLIDE_H
 #define SLIDE_H
 
+#include <memory>
+
+#include <QVector>
+
+#include "presentationelement.h"
+
 /*!
  * \brief The Slide class represents single slide from presentation.
  *
@@ -15,8 +21,12 @@ public:
     Slide(const Slide& other);
     Slide& operator=(const Slide& other);
 
-    Slide(Slide&& other);
-    Slide& operator=(Slide&& other);
+    int elementsCount() const;
+
+    void addElement(std::unique_ptr<PresentationElement> element);
+
+private:
+    QVector<PresentationElement *> mElementsList;
 };
 
 #endif // SLIDE_H
