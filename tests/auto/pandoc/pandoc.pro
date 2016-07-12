@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-07-03T19:01:14
+# Project created by QtCreator 2016-07-12T09:32:22
 #
 #-------------------------------------------------
 
@@ -8,13 +8,13 @@ QT       += testlib
 
 QT       -= gui
 
-TARGET = tst_slidetest
-CONFIG   += console c++14
+TARGET = tst_pandoctest
+CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
 
 include(../includes/default.pri)
-include(../../../pllug-presentation-system/presentation-data/presentation-data.pri)
+include(../../../pllug-presentation-system/pandoc-workflow/pandoc-workflow.pri)
 
-SOURCES += tst_slidetest.cpp
+SOURCES += tst_pandoctest.cpp
