@@ -2,10 +2,9 @@
 #define PANDOCRUNNER_H
 
 #include <QObject>
+#include <QString>
 #include <QProcess>
 #include <QMetaEnum>
-
-class QString;
 
 /*!
  * \brief The PandocRunner class provides functionality
@@ -30,6 +29,8 @@ class QString;
  * \endcode
  */
 
+QString const RELATIVE_PANDOC_EXE_PATH = "3rdparty/pandoc/windows/pandoc.exe";
+
 class PandocRunner : public QProcess
 {
     Q_OBJECT
@@ -53,6 +54,9 @@ private slots:
     void finishedProcess(int exitCode);
     void readyReadOutput();
     void readyReadError();
+
+private:
+    void initializeConnections();
 
 private:
     QString mContent;

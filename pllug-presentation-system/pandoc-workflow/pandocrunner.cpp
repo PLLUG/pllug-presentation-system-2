@@ -1,6 +1,5 @@
 #include "pandocrunner.h"
 
-#include <QString>
 #include <QStringList>
 #include <QCoreApplication>
 #include <QDir>
@@ -13,13 +12,11 @@ PandocRunner::PandocRunner(QObject* parent):
   , mStatusCode(0)
 {
     QString projFolder = QCoreApplication::applicationDirPath();
-    mPandocExePath = QDir(projFolder).filePath("3rdparty/pandoc/windows/pandoc.exe");
+    mPandocExePath = QDir(projFolder).filePath(RELATIVE_PANDOC_EXE_PATH);
 
     mMetaEnum = QMetaEnum::fromType<PandocFormat>();
 
-    connect(this, SIGNAL(finished(int)), this, SLOT(finishedProcess(int)));
-    connect(this, SIGNAL(readyReadStandardOutput()), this, SLOT(readyReadOutput()));
-    connect(this, SIGNAL(readyReadStandardError()), this, SLOT(readyReadError()));
+    initializeConnections();
 }
 
 QString PandocRunner::run(PandocFormat from, PandocFormat to, const QString &file)
@@ -84,4 +81,11 @@ QStringList PandocRunner::buildParams(PandocFormat from, PandocFormat to, const 
     params << QString("-t") << QString(mMetaEnum.valueToKey(to)).toLower();
 
     return params;
+}
+
+void PandocRunner::initializeConnections()
+{
+    connect(this, SIGNAL(finished(int)), this, SLOT(finishedProcess(int)));
+    connect(this, SIGNAL(readyReadStandardOutput()), this, SLOT(readyReadOutput()));
+    connect(this, SIGNAL(readyReadStandardError()), this, SLOT(readyReadError()));
 }
