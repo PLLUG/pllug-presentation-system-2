@@ -39,7 +39,8 @@ public:
     enum PandocFormat {
         HTML,
         Markdown,
-        Json
+        Json,
+        Markdown_Github
     };
     Q_ENUM(PandocFormat)
 
