@@ -3,3 +3,5 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/pandocrunner.cpp
+
+INCLUDEPATH += $$PWD
