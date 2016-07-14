@@ -10,6 +10,11 @@
 
 const int cMaxNumOfElements = 5;
 
+DomDocumentDivider::DomDocumentDivider(std::shared_ptr<PresentationElementFactory> presentationElementFactory)
+    : DocumentImportStrategy(presentationElementFactory)
+{
+}
+
 std::unique_ptr<Presentation> DomDocumentDivider::import(const QByteArray &inputText) const
 {
     QByteArray htmlText = "<root>" + inputText + "</root>";
@@ -96,7 +101,7 @@ QVector<Slide> DomDocumentDivider::divideByHeaders(const QVector<QDomDocument> &
                 else
                 {
                     // FIXME: Method PresentationElementFactory::create() isn't yet implemented.
-                    //                    currentSlide.addElement(PresentationElementFactory().create(domElement.text(), domElement.tagName()));
+//                    currentSlide.addElement(presentationElementFactory()->create(domElement.text(), domElement.tagName()));
                 }
             }
             domNode = domNode.nextSiblingElement();

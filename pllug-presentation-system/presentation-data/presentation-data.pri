@@ -3,7 +3,8 @@ SOURCES += \
     $$PWD/slide.cpp \
     $$PWD/presentationelement.cpp \
     $$PWD/domdocumentdivider.cpp \
-    $$PWD/presentationelementfactory.cpp
+    $$PWD/documentimportstrategy.cpp \
+    $$PWD/concretepresentationelementfactory.cpp
 
 HEADERS += \
     $$PWD/presentation.h \
@@ -12,6 +13,7 @@ HEADERS += \
     $$PWD/testelement.h \
     $$PWD/documentimportstrategy.h \
     $$PWD/domdocumentdivider.h \
-    $$PWD/presentationelementfactory.h
+    $$PWD/presentationelementfactory.h \
+    $$PWD/concretepresentationelementfactory.h
 
 INCLUDEPATH += $$PWD

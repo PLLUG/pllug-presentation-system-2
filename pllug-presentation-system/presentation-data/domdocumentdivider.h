@@ -14,6 +14,7 @@ class QVector;
 class DomDocumentDivider : public DocumentImportStrategy
 {
 public:
+    explicit DomDocumentDivider(std::shared_ptr<PresentationElementFactory> presentationElementFactory);
     virtual std::unique_ptr<Presentation> import(const QByteArray &inputText) const override;
 
 private:

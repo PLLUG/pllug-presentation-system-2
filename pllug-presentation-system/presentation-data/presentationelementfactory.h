@@ -9,7 +9,7 @@ class QString;
 class PresentationElementFactory
 {
 public:
-    std::unique_ptr<PresentationElement> create(const QString &text, const QString &tag);
+    virtual std::unique_ptr<PresentationElement> create(const QString &text, const QString &tag) const = 0;
 };
 
 #endif // PRESENTATIONELEMENTFACTORY_H
