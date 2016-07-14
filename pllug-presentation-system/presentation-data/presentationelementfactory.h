@@ -2,9 +2,9 @@
 #define PRESENTATIONELEMENTFACTORY_H
 
 #include <memory>
-#include <QString>
 
-#include "presentationelement.h"
+class PresentationElement;
+class QString;
 
 class PresentationElementFactory
 {

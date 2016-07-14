@@ -1,15 +1,15 @@
 #ifndef DOCUMENTIMPORTSTRATEGY_H
 #define DOCUMENTIMPORTSTRATEGY_H
 
-#include "presentation.h"
-
-#include <QByteArray>
 #include <memory>
+
+class Presentation;
+class QByteArray;
 
 class DocumentImportStrategy
 {
 public:
-    virtual std::unique_ptr<Presentation> import(const QByteArray &) = 0;
+    virtual std::unique_ptr<Presentation> import(const QByteArray &) const = 0;
 };
 
 #endif // DOCUMENTIMPORTSTRATEGY_H

@@ -2,7 +2,6 @@ SOURCES += \
     $$PWD/presentation.cpp \
     $$PWD/slide.cpp \
     $$PWD/presentationelement.cpp \
-    $$PWD/documentimportstrategy.cpp \
     $$PWD/domdocumentdivider.cpp \
     $$PWD/presentationelementfactory.cpp
 
