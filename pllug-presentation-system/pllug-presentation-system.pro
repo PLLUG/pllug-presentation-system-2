@@ -1,5 +1,4 @@
-QT += qml quick\
-    xml
+QT += xml qml quick
 
 CONFIG += c++14
 
