@@ -95,7 +95,7 @@ QVector<Slide> DomDocumentDivider::divideByHeaders(const QVector<QDomDocument> &
                     {
                         rSlides.push_back(currentSlide);
                         // FIXME: Needed constructor doesn't yet exist
-                        //                    currentSlide = Slide(domElement);
+//                                            currentSlide = Slide(domElement.text());
                     }
                 }
                 else
