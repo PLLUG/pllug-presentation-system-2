@@ -1,4 +1,4 @@
-QT += testlib
+QT += testlib xml
 
 # Location of autotests project dir
 TESTS_DIR = $$_PRO_FILE_PWD_/..
