@@ -5,7 +5,7 @@
 
 #include <QVector>
 #include <QDebug>
-#include <QDomDocument>
+#include <QtXml/QDomDocument>
 #include <QByteArray>
 
 const int cMaxNumOfElements = 5;
