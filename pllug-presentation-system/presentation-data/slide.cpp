@@ -15,7 +15,7 @@ Slide::Slide()
  */
 Slide::~Slide()
 {
-    qDeleteAll(mElementsList);
+//    qDeleteAll(mElementsList);
 }
 
 /*!
@@ -23,7 +23,8 @@ Slide::~Slide()
  */
 Slide::Slide(const Slide &other)
 {
-    Q_UNUSED(other)
+//    Q_UNUSED(other)
+    mElementsList = other.mElementsList;
 }
 
 /*!
@@ -53,4 +54,9 @@ int Slide::elementsCount() const
 void Slide::addElement(std::unique_ptr<PresentationElement> element)
 {
     mElementsList.append(element.release());
+}
+
+PresentationElement *Slide::getElement(int index) const
+{
+    return mElementsList[index];
 }

@@ -9,6 +9,7 @@ class PresentationElement
 {
 public:
     virtual ~PresentationElement() = 0;
+
 };
 
 #endif // PRESENTATIONELEMENT_H

@@ -10,7 +10,7 @@
 #include <QFile>
 #include <memory>
 #include <QList>
-
+#include <QDebug>
 class DomDocumentDividerTest : public QObject
 {
     Q_OBJECT
@@ -50,14 +50,11 @@ void DomDocumentDividerTest::test_importOneParagraph_slideWithOneParagraph()
 
     QVERIFY(presentation != nullptr);
     QCOMPARE(presentation->slideCount(), 1);
-
-//    QCOMPARE(presentation->slide(1)->elementsCount(), 1);
-
-//    // Check if element's type is text.
-//    QCOMPARE(presentation->slide(1)->element(1)->type(), PresentationElement::ElementType::Paragraph);
+    QCOMPARE(presentation->getSlide(0)->elementsCount(), 1);
+    QVERIFY(dynamic_cast<Paragraph *>(presentation->getSlide(0)->getElement(0)) != nullptr);
 
 //    //Check if 2 htmls are the same.
-//    QCOMPARE(presentation->slide(1)->element(1)->toHtml(), htmlFile);
+//    QCOMPARE(presentation->getSlide(0)->getElement(0)->toHtml(), htmlFile);
 
     htmlFile.close();
 }

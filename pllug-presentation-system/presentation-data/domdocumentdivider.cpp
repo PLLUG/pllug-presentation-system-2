@@ -23,7 +23,8 @@ std::unique_ptr<Presentation> DomDocumentDivider::import(const QList<Presentatio
     QList<QList<PresentationElement *>> separatedParts = divideBySeparators(elements);
     QList<Slide> undividedSlides = divideByHeaders(separatedParts);
 
-    return divideSlides(undividedSlides);
+    std::unique_ptr<Presentation> rPresentation = divideSlides(undividedSlides);
+    return rPresentation;
 }
 
 bool DomDocumentDivider::isSeparator(PresentationElement *element) const
