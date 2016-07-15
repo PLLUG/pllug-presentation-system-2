@@ -6,7 +6,7 @@
 class ConcretePresentationElementFactory : public PresentationElementFactory
 {
 public:
-    virtual std::unique_ptr<PresentationElement> create(const QString &text, const QString &tag) const override;
+    virtual std::unique_ptr<PresentationElement> create(const QString &html) const override;
 };
 
 #endif // CONCRETEPRESENTATIONELEMENTFACTORY_H

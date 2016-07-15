@@ -6,13 +6,15 @@
 class Presentation;
 class QByteArray;
 class PresentationElementFactory;
+class PresentationElement;
+#include <QList>
 
 class DocumentImportStrategy
 {
 public:
-    explicit DocumentImportStrategy(std::shared_ptr<PresentationElementFactory> presentationElementFactory);
+    explicit DocumentImportStrategy();
 
-    virtual std::unique_ptr<Presentation> import(const QByteArray &) const = 0;
+     virtual std::unique_ptr<Presentation> import(const QList<PresentationElement *> &) const = 0;
 
     std::shared_ptr<PresentationElementFactory> presentationElementFactory() const;
 

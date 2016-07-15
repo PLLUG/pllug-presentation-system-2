@@ -3,28 +3,25 @@
 
 #include "documentimportstrategy.h"
 
-class QDomDocument;
-class QDomElement;
 class Presentation;
 class Slide;
-
-template <typename T>
-class QVector;
+class PresentationElement;
+#include <QList>
 
 class DomDocumentDivider : public DocumentImportStrategy
 {
 public:
-    explicit DomDocumentDivider(std::shared_ptr<PresentationElementFactory> presentationElementFactory);
-    virtual std::unique_ptr<Presentation> import(const QByteArray &inputText) const override;
+    explicit DomDocumentDivider();
+    virtual std::unique_ptr<Presentation> import(const QList<PresentationElement *> &elements) const override;
 
 private:
-    bool isSeparator(const QDomElement &element) const;
-    bool isHeader(const QDomElement &element) const;
+    bool isSeparator(PresentationElement *element) const;
+    bool isHeader(PresentationElement *element) const;
 
-    QVector<QDomDocument> divideBySeparators(const QDomDocument &htmlDocument) const;
-    QVector<Slide> divideByHeaders(const QVector<QDomDocument> &parts) const;
-    std::unique_ptr<Presentation> divideSlides(const QVector<Slide> &slides) const;
-    QVector<Slide *> divideSlide(const Slide &slide, int elementsNum) const;
+    QList<QList<PresentationElement *>> divideBySeparators(const QList<PresentationElement *> &elements) const;
+    QList<Slide> divideByHeaders(const QList<QList<PresentationElement *>> &parts) const;
+    std::unique_ptr<Presentation> divideSlides(const QList<Slide> &slides) const;
+    QList<Slide *> divideSlide(const Slide &slide, int elementsNum) const;
 };
 
 #endif // DOMDOCUMENTDIVIDER_H

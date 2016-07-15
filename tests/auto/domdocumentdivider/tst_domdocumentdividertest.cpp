@@ -4,9 +4,12 @@
 #include "domdocumentdivider.h"
 #include "presentation.h"
 #include "concretepresentationelementfactory.h"
+#include "paragraph.h"
+#include "presentation.h"
 
 #include <QFile>
 #include <memory>
+#include <QList>
 
 class DomDocumentDividerTest : public QObject
 {
@@ -35,22 +38,26 @@ void DomDocumentDividerTest::cleanupTestCase()
 
 void DomDocumentDividerTest::test_importOneParagraph_slideWithOneParagraph()
 {
-    QFile htmlFile("/domdocumentdivider/test-data/one_paragraph.html");
+    QFile htmlFile("D:/Qt_projects/SUMMERCAMP2016/pllug-presentation-system-2/tests/auto/domdocumentdivider/test-data/single_paragraph.html");
     htmlFile.open(QFile::ReadOnly);
     QByteArray htmlByteArray = htmlFile.readAll();
+    Paragraph *paragraph = new Paragraph (htmlByteArray);
+    QList<PresentationElement *> elementsList;
+    elementsList.append(paragraph);
 
-    ConcretePresentationElementFactory *factoryPtr = new ConcretePresentationElementFactory();
-    DomDocumentDivider divider(std::make_shared<ConcretePresentationElementFactory>(*factoryPtr));
+    DomDocumentDivider divider;
+    std::unique_ptr<Presentation> presentation = divider.import(elementsList);
 
-    std::unique_ptr<Presentation> presentation = divider.import(htmlByteArray);
-
+    QVERIFY(presentation != nullptr);
     QCOMPARE(presentation->slideCount(), 1);
 
-//    // Check if the first slide contains 1 element.
-//    QCOMPARE(presentation->slide(1)->elementCount(), 1);
+//    QCOMPARE(presentation->slide(1)->elementsCount(), 1);
 
 //    // Check if element's type is text.
 //    QCOMPARE(presentation->slide(1)->element(1)->type(), PresentationElement::ElementType::Paragraph);
+
+//    //Check if 2 htmls are the same.
+//    QCOMPARE(presentation->slide(1)->element(1)->toHtml(), htmlFile);
 
     htmlFile.close();
 }

@@ -1,127 +1,108 @@
 #include "domdocumentdivider.h"
 #include "presentationelementfactory.h"
+#include "presentationelement.h"
+#include "documentimportstrategy.h"
 #include "presentation.h"
 #include "slide.h"
+#include "presentationelement.h"
+#include "separator.h"
+#include "header.h"
 
-#include <QVector>
+#include <QList>
 #include <QDebug>
-#include <QDomDocument>
-#include <QByteArray>
+#include <memory>
 
 const int cMaxNumOfElements = 5;
 
-DomDocumentDivider::DomDocumentDivider(std::shared_ptr<PresentationElementFactory> presentationElementFactory)
-    : DocumentImportStrategy(presentationElementFactory)
+DomDocumentDivider::DomDocumentDivider()
 {
 }
 
-std::unique_ptr<Presentation> DomDocumentDivider::import(const QByteArray &inputText) const
+std::unique_ptr<Presentation> DomDocumentDivider::import(const QList<PresentationElement *> &elements) const
 {
-    QByteArray htmlText = "<root>" + inputText + "</root>";
-    QDomDocument htmlDocument;
-    htmlDocument.setContent(htmlText);
-
-    QVector<QDomDocument> separatedParts = divideBySeparators(htmlDocument);
-    QVector<Slide> undividedSlides = divideByHeaders(separatedParts);
+    QList<QList<PresentationElement *>> separatedParts = divideBySeparators(elements);
+    QList<Slide> undividedSlides = divideByHeaders(separatedParts);
 
     return divideSlides(undividedSlides);
 }
 
-bool DomDocumentDivider::isSeparator(const QDomElement &element) const
+bool DomDocumentDivider::isSeparator(PresentationElement *element) const
 {
-    return element.tagName() == "hr";
+    return dynamic_cast<Separator *>(element);
 }
 
-bool DomDocumentDivider::isHeader(const QDomElement &element) const
+bool DomDocumentDivider::isHeader(PresentationElement *element) const
 {
-    return element.tagName() == "h1";
+    return dynamic_cast<Header *>(element);
 }
 
-QVector<QDomDocument> DomDocumentDivider::divideBySeparators(const QDomDocument &htmlDocument) const
+QList<QList<PresentationElement *> > DomDocumentDivider::divideBySeparators(const QList<PresentationElement *> &elements) const
 {
-    QVector<QDomDocument> rParts;
-    QDomDocument currentPart;
+    QList<QList<PresentationElement *> > rParts;
 
-    QDomNode domNode = htmlDocument.documentElement().firstChild();
-    while (!(domNode.isNull()))
+    QList<PresentationElement *> currentPart;
+    for(auto element: elements)
     {
-        QDomElement domElement;
-        domElement = domNode.toElement();
-        if (!domElement.isNull())
+        if (isSeparator(element))
         {
-            qDebug() << "tag:" << domElement.tagName() << "text" << domElement.text();
-            if (isSeparator(domElement))
+            if (currentPart.count() != 0)
             {
-                if (currentPart.childNodes().count() != 0)
-                {
-                    rParts.push_back(currentPart);
-                    currentPart = QDomDocument();
-                }
-            }
-            else
-            {
-                currentPart.appendChild(domNode);
+                rParts.append(currentPart);
+                currentPart.clear();
             }
         }
-        domNode = domNode.nextSiblingElement();
+        else
+        {
+            currentPart.append(element);
+        }
     }
-
-    if (currentPart.childNodes().count() != 0)
+    if (currentPart.count() != 0)
     {
-        rParts.push_back(currentPart);
+        rParts.append(currentPart);
     }
 
     return rParts;
 }
 
-QVector<Slide> DomDocumentDivider::divideByHeaders(const QVector<QDomDocument> &parts) const
+QList<Slide> DomDocumentDivider::divideByHeaders(const QList<QList<PresentationElement *> > &parts) const
 {
-    QVector<Slide> rSlides;
-    Slide currentSlide;
+    QList<Slide> rSlides;
 
-    for (const QDomDocument &part: parts)
+    for (auto part: parts)
     {
-        QDomNode domNode = part.documentElement().firstChild();
-        while (!domNode.isNull())
+        Slide currentSlide;
+        for (auto element: part)
         {
-            QDomElement domElement;
-            domElement = domNode.toElement();
-            if (!(domElement.isNull()))
+            if (isHeader(element))
             {
-                qDebug() << "tag:" << domElement.tagName() << "text" << domElement.text();
-                if (isHeader(domElement))
+                if(currentSlide.elementsCount() != 0)
                 {
-                    if (currentSlide.elementsCount() != 0)
-                    {
-                        rSlides.push_back(currentSlide);
-                        // FIXME: Needed constructor doesn't yet exist
-//                                            currentSlide = Slide(domElement.text());
-                    }
+                    rSlides.append(currentSlide);
+                    currentSlide = Slide();
                 }
-                else
-                {
-                    // FIXME: Method PresentationElementFactory::create() isn't yet implemented.
-//                    currentSlide.addElement(presentationElementFactory()->create(domElement.text(), domElement.tagName()));
-                }
+                // addTitle() method would fit better
+                currentSlide.addElement(std::unique_ptr<PresentationElement>(element));
             }
-            domNode = domNode.nextSiblingElement();
+            else
+            {
+                currentSlide.addElement(std::unique_ptr<PresentationElement>(element));
+            }
         }
-        if (currentSlide.elementsCount() != 0)
+        if(currentSlide.elementsCount() != 0)
         {
-            rSlides.push_back(currentSlide);
+            rSlides.append(currentSlide);
         }
     }
-
     return rSlides;
 }
 
-std::unique_ptr<Presentation> DomDocumentDivider::divideSlides(const QVector<Slide> &slides) const
+std::unique_ptr<Presentation> DomDocumentDivider::divideSlides(const QList<Slide> &slides) const
 {
     std::unique_ptr<Presentation> rPresentation(new Presentation());
 
     for (const Slide &undividedSlide: slides)
     {
-        QVector<Slide *> smallerSlides = divideSlide(undividedSlide, cMaxNumOfElements);
+        QList<Slide *> smallerSlides = divideSlide(undividedSlide, cMaxNumOfElements);
         for (Slide *slide: smallerSlides)
         {
             rPresentation->appendSlide(std::make_unique<Slide>(*slide));
@@ -131,8 +112,10 @@ std::unique_ptr<Presentation> DomDocumentDivider::divideSlides(const QVector<Sli
     return rPresentation;
 }
 
-QVector<Slide *>  DomDocumentDivider::divideSlide(const Slide &slide, int elementsNum) const
+QList<Slide *>  DomDocumentDivider::divideSlide(const Slide &slide, int elementsNum) const
 {
     // TODO: Nothing done here yet, as we don't know how to divide a single slide
-    return QVector<Slide *>();
+    QList<Slide *> smallerSlides;
+    smallerSlides.push_back(new Slide(slide));
+    return smallerSlides;
 }

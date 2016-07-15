@@ -60,3 +60,4 @@ void Presentation::appendSlide(std::unique_ptr<Slide> slide)
 {
     mSlideList.push_back(slide.release());
 }
+

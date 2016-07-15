@@ -1,7 +1,7 @@
 #include "documentimportstrategy.h"
+#include "presentationelementfactory.h"
 
-DocumentImportStrategy::DocumentImportStrategy(std::shared_ptr<PresentationElementFactory> presentationElementFactory)
-    : mPresentationElementFactory {presentationElementFactory}
+DocumentImportStrategy::DocumentImportStrategy()
 {
 }
 

@@ -1,7 +1,7 @@
 #include "slide.h"
 
 #include <QtGlobal>
-
+#include <QDebug>
 /*!
  * \brief Public constructor.
  */
