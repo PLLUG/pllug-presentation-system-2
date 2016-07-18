@@ -52,9 +52,7 @@ void DomDocumentDividerTest::test_importOneParagraph_slideWithOneParagraph()
     QCOMPARE(presentation->slideCount(), 1);
     QCOMPARE(presentation->getSlide(0)->elementsCount(), 1);
     QVERIFY(dynamic_cast<Paragraph *>(presentation->getSlide(0)->getElement(0)) != nullptr);
-
-//    //Check if 2 htmls are the same.
-//    QCOMPARE(presentation->getSlide(0)->getElement(0)->toHtml(), htmlFile);
+    QCOMPARE(presentation->getSlide(0)->getElement(0)->toHtml(), static_cast<QString>(htmlByteArray));
 
     htmlFile.close();
 }

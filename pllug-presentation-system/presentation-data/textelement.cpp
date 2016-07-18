@@ -1,13 +1,8 @@
 #include "textelement.h"
 
 TextElement::TextElement(const QString &html)
-    : mContent{html}
+    : PresentationElement(html)
 { 
-}
-
-QString TextElement::toHtml() const
-{
-    return mContent;
 }
 
 QString TextElement::tag() const

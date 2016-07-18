@@ -3,5 +3,4 @@
 Paragraph::Paragraph(const QString &html)
     : TextElement(html)
 {
-
 }
