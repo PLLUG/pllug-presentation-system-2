@@ -99,7 +99,7 @@ QList<Slide *> DomDocumentDivider::divideByHeaders(const QList<QList<Presentatio
 
 std::unique_ptr<Presentation> DomDocumentDivider::divideSlides(const QList<Slide *> &slides) const
 {
-    std::unique_ptr<Presentation> rPresentation(new Presentation());
+    std::unique_ptr<Presentation> rPresentation = std::make_unique<Presentation>();
 
     for (auto undividedSlide: slides)
     {

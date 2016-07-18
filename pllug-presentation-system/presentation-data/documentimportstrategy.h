@@ -2,12 +2,12 @@
 #define DOCUMENTIMPORTSTRATEGY_H
 
 #include <memory>
+#include <QList>
 
 class Presentation;
 class QByteArray;
 class PresentationElementFactory;
 class PresentationElement;
-#include <QList>
 
 class DocumentImportStrategy
 {
