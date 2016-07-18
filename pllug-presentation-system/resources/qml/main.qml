@@ -3,12 +3,19 @@ import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 
 import "./TestScreen"
+import "./SourcesQml"
 
 ApplicationWindow {
     visible: true
     width: 640
     height: 480
     title: qsTr("Hello World")
+
+    MessageError{
+        id: error
+        error_title: "Load error"
+        message: "Somesing wrong with network"
+    }
 
     SwipeView {
         id: swipeView
