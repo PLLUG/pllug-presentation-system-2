@@ -19,9 +19,9 @@ private:
     bool isHeader(PresentationElement *element) const;
 
     QList<QList<PresentationElement *>> divideBySeparators(const QList<PresentationElement *> &elements) const;
-    QList<Slide> divideByHeaders(const QList<QList<PresentationElement *>> &parts) const;
-    std::unique_ptr<Presentation> divideSlides(const QList<Slide> &slides) const;
-    QList<Slide *> divideSlide(const Slide &slide, int elementsNum) const;
+    QList<Slide *> divideByHeaders(const QList<QList<PresentationElement *>> &parts) const;
+    std::unique_ptr<Presentation> divideSlides(const QList<Slide *> &slides) const;
+    QList<Slide *> divideSlide(Slide *slide, int elementsNum) const;
 };
 
 #endif // DOMDOCUMENTDIVIDER_H

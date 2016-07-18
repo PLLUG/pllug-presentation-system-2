@@ -21,7 +21,7 @@ DomDocumentDivider::DomDocumentDivider()
 std::unique_ptr<Presentation> DomDocumentDivider::import(const QList<PresentationElement *> &elements) const
 {
     QList<QList<PresentationElement *>> separatedParts = divideBySeparators(elements);
-    QList<Slide> undividedSlides = divideByHeaders(separatedParts);
+    QList<Slide *> undividedSlides = divideByHeaders(separatedParts);
 
     std::unique_ptr<Presentation> rPresentation = divideSlides(undividedSlides);
     return rPresentation;
@@ -65,31 +65,31 @@ QList<QList<PresentationElement *> > DomDocumentDivider::divideBySeparators(cons
     return rParts;
 }
 
-QList<Slide> DomDocumentDivider::divideByHeaders(const QList<QList<PresentationElement *> > &parts) const
+QList<Slide *> DomDocumentDivider::divideByHeaders(const QList<QList<PresentationElement *> > &parts) const
 {
-    QList<Slide> rSlides;
+    QList<Slide *> rSlides;
 
     for (auto part: parts)
     {
-        Slide currentSlide;
+        Slide *currentSlide = new Slide();
         for (auto element: part)
         {
             if (isHeader(element))
             {
-                if(currentSlide.elementsCount() != 0)
+                if(currentSlide->elementsCount() != 0)
                 {
                     rSlides.append(currentSlide);
-                    currentSlide = Slide();
+                    currentSlide = new Slide();
                 }
                 // addTitle() method would fit better
-                currentSlide.addElement(std::unique_ptr<PresentationElement>(element));
+                currentSlide->addElement(std::unique_ptr<PresentationElement>(element));
             }
             else
             {
-                currentSlide.addElement(std::unique_ptr<PresentationElement>(element));
+                currentSlide->addElement(std::unique_ptr<PresentationElement>(element));
             }
         }
-        if(currentSlide.elementsCount() != 0)
+        if(currentSlide->elementsCount() != 0)
         {
             rSlides.append(currentSlide);
         }
@@ -97,26 +97,26 @@ QList<Slide> DomDocumentDivider::divideByHeaders(const QList<QList<PresentationE
     return rSlides;
 }
 
-std::unique_ptr<Presentation> DomDocumentDivider::divideSlides(const QList<Slide> &slides) const
+std::unique_ptr<Presentation> DomDocumentDivider::divideSlides(const QList<Slide *> &slides) const
 {
     std::unique_ptr<Presentation> rPresentation(new Presentation());
 
-    for (const Slide &undividedSlide: slides)
+    for (auto undividedSlide: slides)
     {
         QList<Slide *> smallerSlides = divideSlide(undividedSlide, cMaxNumOfElements);
         for (Slide *slide: smallerSlides)
         {
-            rPresentation->appendSlide(std::make_unique<Slide>(*slide));
+            rPresentation->appendSlide(std::unique_ptr<Slide>(slide));
         }
     }
 
     return rPresentation;
 }
 
-QList<Slide *>  DomDocumentDivider::divideSlide(const Slide &slide, int elementsNum) const
+QList<Slide *>  DomDocumentDivider::divideSlide(Slide *slide, int elementsNum) const
 {
     // TODO: Nothing done here yet, as we don't know how to divide a single slide
     QList<Slide *> smallerSlides;
-    smallerSlides.push_back(new Slide(slide));
+    smallerSlides.push_back(slide);
     return smallerSlides;
 }

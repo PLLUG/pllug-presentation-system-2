@@ -15,7 +15,7 @@ Slide::Slide()
  */
 Slide::~Slide()
 {
-//    qDeleteAll(mElementsList);
+    qDeleteAll(mElementsList);
 }
 
 /*!
@@ -23,8 +23,7 @@ Slide::~Slide()
  */
 Slide::Slide(const Slide &other)
 {
-//    Q_UNUSED(other)
-    mElementsList = other.mElementsList;
+    Q_UNUSED(other)
 }
 
 /*!
