@@ -6,4 +6,12 @@
         <file alias="Page1.qml">qml/TestScreen/Page1.qml</file>
         <file alias="Page1Form.ui.qml">qml/TestScreen/Page1Form.ui.qml</file>
     </qresource>
+    <qresource prefix="/FontAwesome">
+        <file alias="controls/Button.qml">qml/FontAwesome/controls/Button.qml</file>
+        <file alias="controls/Loader.qml">qml/FontAwesome/controls/Loader.qml</file>
+        <file alias="controls/Text.qml">qml/FontAwesome/controls/Text.qml</file>
+        <file alias="controls/Variables.qml">qml/FontAwesome/controls/Variables.qml</file>
+        <file alias="font/fontawesome-webfont.ttf">qml/FontAwesome/font/fontawesome-webfont.ttf</file>
+        <file alias="FontAwesome.qml">qml/FontAwesome/FontAwesome.qml</file>
+    </qresource>
 </RCC>
