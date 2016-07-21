@@ -4,9 +4,9 @@ Header::Header(const QString &html)
     : TextElement(html)
 {
     QString substr = html.left(4);
-    if(substr[3].isDigit() && (substr[3].digitValue() > 0 || substr[3].digitValue() <= 6))
+    if(substr[2].isDigit() && (substr[2].digitValue() > 0 || substr[2].digitValue() <= 6))
     {
-        mLevel = substr[3].digitValue();
+        mLevel = substr[2].digitValue();
     }
     else
     {

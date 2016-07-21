@@ -15,9 +15,8 @@ QList<PresentationElement *> HtmlImport::import(const QByteArray &inputHtml) con
 {
     QList<PresentationElement *> rElements;
 
-    QByteArray htmlText = "<root>" + inputHtml + "</root>";
     QDomDocument htmlDocument;
-    htmlDocument.setContent(htmlText);
+    htmlDocument.setContent(inputHtml);
 
     QDomNode domNode = htmlDocument.documentElement().firstChild();
     while (!(domNode.isNull()))
@@ -25,9 +24,9 @@ QList<PresentationElement *> HtmlImport::import(const QByteArray &inputHtml) con
         QDomElement domElement = domNode.toElement();
         if (!domElement.isNull())
         {
-            qDebug() << "tag:" << domElement.tagName() << "text" << domElement.text();
             QString htmlElement( "<" + domElement.tagName() + ">" + domElement.text() + "</" + domElement.tagName() + ">");
-            rElements.append(presentationElementFactory()->create(htmlElement).release());
+            PresentationElement* element = presentationElementFactory()->create(htmlElement).release();
+            rElements.append(element);
         }
         domNode = domNode.nextSiblingElement();
     }
