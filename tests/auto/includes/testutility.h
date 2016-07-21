@@ -1,0 +1,4 @@
+#ifndef TESTUTILITY_H
+#define TESTUTILITY_H
+
+#endif // TESTUTILITY_H
