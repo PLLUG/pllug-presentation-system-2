@@ -4,6 +4,7 @@
 #include <QList>
 #include <memory>
 #include <QDebug>
+#include <QDir>
 
 #include "htmlimport.h"
 #include "presentationelement.h"
@@ -42,7 +43,8 @@ void HtmlImportTest::cleanupTestCase()
 
 void HtmlImportTest::test_importOneParagraph_OneParagraph()
 {
-    QFile htmlFile("./htmlimport/test-data/single_paragraph.html");
+    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/single_paragraph.html");
+    QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
     std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());
@@ -55,7 +57,8 @@ void HtmlImportTest::test_importOneParagraph_OneParagraph()
 
 void HtmlImportTest::test_importTwoParagraphs_TwoParagraphs()
 {
-    QFile htmlFile("./htmlimport/test-data/two_paragraphs.html");
+    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/two_paragraphs.html");
+    QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
     std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());
@@ -69,7 +72,8 @@ void HtmlImportTest::test_importTwoParagraphs_TwoParagraphs()
 
 void HtmlImportTest::test_importSeparatedParagraphs_ParagraphSeparatorParagraph()
 {
-    QFile htmlFile("./htmlimport/test-data/separated_paragraphs.html");
+    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/separated_paragraphs.html");
+    QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
     std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());
@@ -84,7 +88,8 @@ void HtmlImportTest::test_importSeparatedParagraphs_ParagraphSeparatorParagraph(
 
 void HtmlImportTest::test_importHtmlWithHeader_HeaderParagraphSeparator()
 {
-    QFile htmlFile("./htmlimport/test-data/header.html");
+    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/header.html");
+    QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
     std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());

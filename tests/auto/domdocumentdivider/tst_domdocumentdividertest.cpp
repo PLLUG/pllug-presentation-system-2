@@ -12,6 +12,7 @@
 #include <memory>
 #include <QList>
 #include <QDebug>
+#include <QDir>
 
 class DomDocumentDividerTest : public QObject
 {
@@ -42,7 +43,8 @@ void DomDocumentDividerTest::cleanupTestCase()
 
 void DomDocumentDividerTest::test_importOneParagraph_slideWithOneParagraph()
 {
-    QFile htmlFile("./domdocumentdivider/test-data/single_paragraph.html");
+    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("domdocumentdivider/test-data/single_paragraph.html");
+    QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray htmlByteArray = htmlFile.readAll();
     Paragraph *paragraph = new Paragraph (htmlByteArray);
@@ -63,7 +65,8 @@ void DomDocumentDividerTest::test_importOneParagraph_slideWithOneParagraph()
 
 void DomDocumentDividerTest::test_importTwoParagraphs_slideWithTwoParagraphs()
 {
-    QFile htmlFile("./domdocumentdivider/test-data/single_paragraph.html");
+    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("domdocumentdivider/test-data/single_paragraph.html");
+    QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray htmlByteArray = htmlFile.readAll();
     Paragraph *paragraph1 = new Paragraph (htmlByteArray);
@@ -88,7 +91,8 @@ void DomDocumentDividerTest::test_importTwoParagraphs_slideWithTwoParagraphs()
 
 void DomDocumentDividerTest::test_importSeparatedParagraphs_twoSlides()
 {
-    QFile htmlFile("./domdocumentdivider/test-data/single_paragraph.html");
+    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("domdocumentdivider/test-data/single_paragraph.html");
+    QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray htmlByteArray = htmlFile.readAll();
     Paragraph *paragraph1 = new Paragraph (htmlByteArray);
