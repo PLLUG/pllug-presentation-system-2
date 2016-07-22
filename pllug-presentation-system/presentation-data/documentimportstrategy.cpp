@@ -1,5 +1,5 @@
 #include "documentimportstrategy.h"
-#include "presentationelementfactory.h"
+#include "abstractpresentationelementfactory.h"
 
 DocumentImportStrategy::DocumentImportStrategy()
 {

@@ -1,5 +1,5 @@
 #include "domdocumentdivider.h"
-#include "presentationelementfactory.h"
+#include "abstractpresentationelementfactory.h"
 #include "presentationelement.h"
 #include "documentimportstrategy.h"
 #include "presentation.h"
@@ -9,7 +9,6 @@
 #include "header.h"
 
 #include <QList>
-#include <QDebug>
 #include <memory>
 
 const int cMaxNumOfElements = 5;

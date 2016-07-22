@@ -2,7 +2,6 @@
 
 #include <utility>
 #include <algorithm>
-
 #include <QtGlobal>
 
 /*!
@@ -61,7 +60,7 @@ void Presentation::appendSlide(std::unique_ptr<Slide> slide)
     mSlideList.push_back(slide.release());
 }
 
-Slide *Presentation::getSlide(int index) const
+Slide *Presentation::slide(int index) const
 {
     return mSlideList[index];
 }

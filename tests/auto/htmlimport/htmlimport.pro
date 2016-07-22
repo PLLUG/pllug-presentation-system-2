@@ -25,5 +25,4 @@ DEFINES += SRCDIR=\\\"$$PWD/\\\"
 DISTFILES += \
     test-data/single_paragraph.html \
     test-data/two_paragraphs.html \
-    test-data/separated_paragraphs.html \
-    test-data/header.html
+    test-data/separated_paragraphs.html

@@ -9,6 +9,10 @@ QT       += xml testlib
 QT       -= gui
 
 TARGET = tst_importdivisiontest
+
+include(../includes/default.pri)
+include(../../../pllug-presentation-system/presentation-data/presentation-data.pri)
+
 CONFIG   += console
 CONFIG   -= app_bundle
 

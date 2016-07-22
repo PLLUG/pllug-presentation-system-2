@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += xml testlib
+QT       += xml testlib\
+core
 
 QT       -= gui
 
@@ -20,5 +21,6 @@ TEMPLATE = app
 
 SOURCES += tst_domdocumentdividertest.cpp
 
-DISTFILES += \
-    test-data/single_paragraph.html
+DISTFILES +=
+
+

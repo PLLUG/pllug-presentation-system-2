@@ -1,15 +1,12 @@
-#ifndef PRESENTATIONELEMENTFACTORY_H
-#define PRESENTATIONELEMENTFACTORY_H
+#ifndef CONCRETEPRESENTATIONELEMENTFACTORY_H
+#define CONCRETEPRESENTATIONELEMENTFACTORY_H
 
-#include <memory>
+#include "abstractpresentationelementfactory.h"
 
-class PresentationElement;
-class QString;
-
-class PresentationElementFactory
+class PresentationElementFactory : public AbstractPresentationElementFactory
 {
 public:
-    virtual std::unique_ptr<PresentationElement> create(const QString &html) const = 0;
+    virtual std::unique_ptr<PresentationElement> create(const QString &html) const override;
 };
 
-#endif // PRESENTATIONELEMENTFACTORY_H
+#endif // CONCRETEPRESENTATIONELEMENTFACTORY_H

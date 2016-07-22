@@ -1,12 +1,11 @@
 #include "htmlimport.h"
-#include "presentationelementfactory.h"
+#include "abstractpresentationelementfactory.h"
 #include "presentationElement.h"
 
 #include <QDomDocument>
-#include <QDebug>
 #include <QByteArray>
-
-HtmlImport::HtmlImport(std::shared_ptr<PresentationElementFactory> presentationElementFactory)
+#include <QTextStream>
+HtmlImport::HtmlImport(std::shared_ptr<AbstractPresentationElementFactory> presentationElementFactory)
     : mPresentationElementFactory(presentationElementFactory)
 {
 }
@@ -19,13 +18,15 @@ QList<PresentationElement *> HtmlImport::import(const QByteArray &inputHtml) con
     htmlDocument.setContent(inputHtml);
 
     QDomNode domNode = htmlDocument.documentElement().firstChild();
-    while (!(domNode.isNull()))
+    while (!domNode.isNull())
     {
         QDomElement domElement = domNode.toElement();
         if (!domElement.isNull())
         {
-            QString htmlElement( "<" + domElement.tagName() + ">" + domElement.text() + "</" + domElement.tagName() + ">");
-            PresentationElement* element = presentationElementFactory()->create(htmlElement).release();
+            QString content;
+            QTextStream ts(&content);
+            domElement.save(ts, domElement.childNodes().count());
+            PresentationElement* element = presentationElementFactory()->create(content).release();
             rElements.append(element);
         }
         domNode = domNode.nextSiblingElement();
@@ -34,7 +35,7 @@ QList<PresentationElement *> HtmlImport::import(const QByteArray &inputHtml) con
     return rElements;
 }
 
-std::shared_ptr<PresentationElementFactory> HtmlImport::presentationElementFactory() const
+std::shared_ptr<AbstractPresentationElementFactory> HtmlImport::presentationElementFactory() const
 {
     return mPresentationElementFactory;
 }

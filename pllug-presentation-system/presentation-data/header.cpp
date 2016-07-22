@@ -1,16 +1,23 @@
 #include "header.h"
 
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QDebug>
+
 Header::Header(const QString &html)
     : TextElement(html)
 {
-    QString substr = html.left(4);
-    if(substr[2].isDigit() && (substr[2].digitValue() > 0 || substr[2].digitValue() <= 6))
+    QRegularExpression re("h[1-6]");
+    QRegularExpressionMatch match = re.match(html);
+    if(match.hasMatch())
     {
-        mLevel = substr[2].digitValue();
+        QString cap = match.captured();
+        mLevel = cap[1].digitValue();
     }
     else
     {
-        throw;
+        mLevel = 1;
+        qWarning() << "Warning: Invalid header level.";
     }
 }
 

@@ -1,7 +1,7 @@
 #include "slide.h"
 
 #include <QtGlobal>
-#include <QDebug>
+
 /*!
  * \brief Public constructor.
  */
@@ -55,7 +55,7 @@ void Slide::addElement(std::unique_ptr<PresentationElement> element)
     mElementsList.append(element.release());
 }
 
-PresentationElement *Slide::getElement(int index) const
+PresentationElement *Slide::element(int index) const
 {
     return mElementsList[index];
 }

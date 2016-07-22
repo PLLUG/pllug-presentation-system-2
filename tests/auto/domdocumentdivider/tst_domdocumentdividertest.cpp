@@ -3,16 +3,16 @@
 
 #include "domdocumentdivider.h"
 #include "presentation.h"
-#include "concretepresentationelementfactory.h"
+#include "presentationelementfactory.h"
 #include "paragraph.h"
 #include "presentation.h"
 #include "separator.h"
+#include "testutility.h"
 
 #include <QFile>
 #include <memory>
 #include <QList>
 #include <QDebug>
-#include <QDir>
 
 class DomDocumentDividerTest : public QObject
 {
@@ -42,11 +42,12 @@ void DomDocumentDividerTest::cleanupTestCase()
 }
 
 void DomDocumentDividerTest::test_importOneParagraph_slideWithOneParagraph()
-{
-    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("domdocumentdivider/test-data/single_paragraph.html");
+{   
+    QString path = TestUtility::getResourcePath("single_paragraph.html");
     QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray htmlByteArray = htmlFile.readAll();
+    htmlFile.close();
     Paragraph *paragraph = new Paragraph (htmlByteArray);
     QList<PresentationElement *> elementsList;
     elementsList.append(paragraph);
@@ -56,19 +57,18 @@ void DomDocumentDividerTest::test_importOneParagraph_slideWithOneParagraph()
 
     QVERIFY(presentation != nullptr);
     QCOMPARE(presentation->slideCount(), 1);
-    QCOMPARE(presentation->getSlide(0)->elementsCount(), 1);
-    QVERIFY(dynamic_cast<Paragraph *>(presentation->getSlide(0)->getElement(0)) != nullptr);
-    QCOMPARE(presentation->getSlide(0)->getElement(0)->toHtml(), static_cast<QString>(htmlByteArray));
-
-    htmlFile.close();
+    QCOMPARE(presentation->slide(0)->elementsCount(), 1);
+    QVERIFY(dynamic_cast<Paragraph *>(presentation->slide(0)->element(0)) != nullptr);
+    QCOMPARE(presentation->slide(0)->element(0)->toHtml(), static_cast<QString>(htmlByteArray));
 }
 
 void DomDocumentDividerTest::test_importTwoParagraphs_slideWithTwoParagraphs()
 {
-    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("domdocumentdivider/test-data/single_paragraph.html");
+    QString path = TestUtility::getResourcePath("single_paragraph.html");
     QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray htmlByteArray = htmlFile.readAll();
+    htmlFile.close();
     Paragraph *paragraph1 = new Paragraph (htmlByteArray);
     Paragraph *paragraph2 = new Paragraph (htmlByteArray);
     QList<PresentationElement *> elementsList;
@@ -80,21 +80,20 @@ void DomDocumentDividerTest::test_importTwoParagraphs_slideWithTwoParagraphs()
 
     QVERIFY(presentation != nullptr);
     QCOMPARE(presentation->slideCount(), 1);
-    QCOMPARE(presentation->getSlide(0)->elementsCount(), 2);
-    QVERIFY(dynamic_cast<Paragraph *>(presentation->getSlide(0)->getElement(0)) != nullptr);
-    QCOMPARE(presentation->getSlide(0)->getElement(0)->toHtml(), static_cast<QString>(htmlByteArray));
-    QVERIFY(dynamic_cast<Paragraph *>(presentation->getSlide(0)->getElement(1)) != nullptr);
-    QCOMPARE(presentation->getSlide(0)->getElement(1)->toHtml(), static_cast<QString>(htmlByteArray));
-
-    htmlFile.close();
+    QCOMPARE(presentation->slide(0)->elementsCount(), 2);
+    QVERIFY(dynamic_cast<Paragraph *>(presentation->slide(0)->element(0)) != nullptr);
+    QCOMPARE(presentation->slide(0)->element(0)->toHtml(), static_cast<QString>(htmlByteArray));
+    QVERIFY(dynamic_cast<Paragraph *>(presentation->slide(0)->element(1)) != nullptr);
+    QCOMPARE(presentation->slide(0)->element(1)->toHtml(), static_cast<QString>(htmlByteArray));
 }
 
 void DomDocumentDividerTest::test_importSeparatedParagraphs_twoSlides()
 {
-    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("domdocumentdivider/test-data/single_paragraph.html");
+    QString path = TestUtility::getResourcePath("single_paragraph.html");
     QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray htmlByteArray = htmlFile.readAll();
+    htmlFile.close();
     Paragraph *paragraph1 = new Paragraph (htmlByteArray);
     Separator *separator = new Separator("<hr />");
     Paragraph *paragraph2 = new Paragraph (htmlByteArray);
@@ -108,14 +107,12 @@ void DomDocumentDividerTest::test_importSeparatedParagraphs_twoSlides()
 
     QVERIFY(presentation != nullptr);
     QCOMPARE(presentation->slideCount(), 2);
-    QCOMPARE(presentation->getSlide(0)->elementsCount(), 1);
-    QCOMPARE(presentation->getSlide(1)->elementsCount(), 1);
-    QVERIFY(dynamic_cast<Paragraph *>(presentation->getSlide(0)->getElement(0)) != nullptr);
-    QCOMPARE(presentation->getSlide(0)->getElement(0)->toHtml(), static_cast<QString>(htmlByteArray));
-    QVERIFY(dynamic_cast<Paragraph *>(presentation->getSlide(1)->getElement(0)) != nullptr);
-    QCOMPARE(presentation->getSlide(1)->getElement(0)->toHtml(), static_cast<QString>(htmlByteArray));
-
-    htmlFile.close();
+    QCOMPARE(presentation->slide(0)->elementsCount(), 1);
+    QCOMPARE(presentation->slide(1)->elementsCount(), 1);
+    QVERIFY(dynamic_cast<Paragraph *>(presentation->slide(0)->element(0)) != nullptr);
+    QCOMPARE(presentation->slide(0)->element(0)->toHtml(), static_cast<QString>(htmlByteArray));
+    QVERIFY(dynamic_cast<Paragraph *>(presentation->slide(1)->element(0)) != nullptr);
+    QCOMPARE(presentation->slide(1)->element(0)->toHtml(), static_cast<QString>(htmlByteArray));
 }
 
 QTEST_APPLESS_MAIN(DomDocumentDividerTest)

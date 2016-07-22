@@ -4,14 +4,14 @@
 #include <QList>
 #include <memory>
 #include <QDebug>
-#include <QDir>
 
 #include "htmlimport.h"
 #include "presentationelement.h"
-#include "concretepresentationelementfactory.h"
+#include "presentationelementfactory.h"
 #include "paragraph.h"
 #include "separator.h"
 #include "header.h"
+#include "testutility.h"
 
 class HtmlImportTest : public QObject
 {
@@ -43,11 +43,12 @@ void HtmlImportTest::cleanupTestCase()
 
 void HtmlImportTest::test_importOneParagraph_OneParagraph()
 {
-    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/single_paragraph.html");
+    QString path = TestUtility::getResourcePath("single_paragraph_root.html");
     QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
-    std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());
+    htmlFile.close();
+    std::shared_ptr<PresentationElementFactory> factoryPtr(new PresentationElementFactory());
     HtmlImport importObject(factoryPtr);
     QList<PresentationElement *> elements = importObject.import(input);
 
@@ -57,11 +58,12 @@ void HtmlImportTest::test_importOneParagraph_OneParagraph()
 
 void HtmlImportTest::test_importTwoParagraphs_TwoParagraphs()
 {
-    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/two_paragraphs.html");
+    QString path = TestUtility::getResourcePath("two_paragraphs.html");
     QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
-    std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());
+    htmlFile.close();
+    std::shared_ptr<PresentationElementFactory> factoryPtr(new PresentationElementFactory());
     HtmlImport importObject(factoryPtr);
     QList<PresentationElement *> elements = importObject.import(input);
 
@@ -72,11 +74,12 @@ void HtmlImportTest::test_importTwoParagraphs_TwoParagraphs()
 
 void HtmlImportTest::test_importSeparatedParagraphs_ParagraphSeparatorParagraph()
 {
-    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/separated_paragraphs.html");
+    QString path = TestUtility::getResourcePath("separated_paragraphs.html");
     QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
-    std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());
+    htmlFile.close();
+    std::shared_ptr<PresentationElementFactory> factoryPtr(new PresentationElementFactory());
     HtmlImport importObject(factoryPtr);
     QList<PresentationElement *> elements = importObject.import(input);
 
@@ -88,11 +91,12 @@ void HtmlImportTest::test_importSeparatedParagraphs_ParagraphSeparatorParagraph(
 
 void HtmlImportTest::test_importHtmlWithHeader_HeaderParagraphSeparator()
 {
-    QString path = QString("%1/%2").arg(QDir().currentPath()).arg("htmlimport/test-data/header.html");
+    QString path = TestUtility::getResourcePath("header.html");
     QFile htmlFile(path);
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
-    std::shared_ptr<PresentationElementFactory> factoryPtr(new ConcretePresentationElementFactory());
+    htmlFile.close();
+    std::shared_ptr<PresentationElementFactory> factoryPtr(new PresentationElementFactory());
     HtmlImport importObject(factoryPtr);
     QList<PresentationElement *> elements = importObject.import(input);
 
