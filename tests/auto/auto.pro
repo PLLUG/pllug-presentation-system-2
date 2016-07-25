@@ -1,7 +1,10 @@
 TEMPLATE = subdirs
 
 SUBDIRS += presentation \
-    slide
+    slide \
+    domdocumentdivider \
+    htmlimport \
+    importdivision
 
 # Curtom make target for all running available tests
 tests.CONFIG = recursive
