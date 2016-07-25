@@ -1,6 +1,6 @@
-QT += qml quick
+QT += xml qml quick
 
-CONFIG += c++11
+CONFIG += c++14
 
 include(presentation-data/presentation-data.pri)
 

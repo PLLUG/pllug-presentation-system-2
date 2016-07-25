@@ -25,6 +25,8 @@ public:
 
     void addElement(std::unique_ptr<PresentationElement> element);
 
+    PresentationElement* element(int index) const;
+
 private:
     QVector<PresentationElement *> mElementsList;
 };
