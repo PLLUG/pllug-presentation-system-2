@@ -12,52 +12,69 @@ void PresentationModel::setPresentation(Presentation *presentation)
 
 int PresentationModel::rowCount(const QModelIndex &parent) const
 {
-    return mPresentation->slideCount();
+    if(parent.isValid())
+    {
+        Slide *slide = static_cast<Slide *>(parent.internalPointer());
+        if(slide)
+        {
+            return slide->elementsCount();
+        }
+        else
+        {
+            mPresentation->slideCount();
+        }
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 int PresentationModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return 1;
 }
 
 QVariant PresentationModel::data(const QModelIndex &index, int role) const
 {
-    int row = index.row();
-    int column = index.column();
-
-    if (column == 1 && (index.parent().row() < mPresentation->slideCount()))
+    if(index.isValid())
     {
-        PresentationElement *element = mPresentation->slide(index.parent().row())->element(row);
-
-        switch(role)
+        Slide *slide = static_cast<Slide *>(index.internalPointer());
+        if(slide)
         {
-        case Roles::X :
-        {
-            return element->x();
+            PresentationElement *element = slide->element(index.row());
+            switch(role)
+            {
+            case Roles::X :
+            {
+                return QString::number(element->x());
+            }
+            case Roles::Y :
+            {
+                return QString::number(element->y());
+            }
+            case Roles::Width :
+            {
+                return QString::number(element->width());
+            }
+            case Roles::Height :
+            {
+                return QString::number(element->height());
+            }
+            case Roles::Html :
+            {
+                return element->toHtml();
+            }
+            default:
+            {
+                return QVariant();
+            }
+            }
         }
-        case Roles::Y :
+        else
         {
-            return element->y();
-
-        }
-        case Roles::Width :
-        {
-            return element->width();
-
-        }
-        case Roles::Height :
-        {
-            return element->height();
-
-        }
-        case Roles::Html :
-        {
-            return element->toHtml();
-        }
-        default:
-        {
-            return QVariant();
-        }
+           return QString::number(index.row());
         }
     }
     else
