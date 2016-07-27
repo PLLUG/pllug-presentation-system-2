@@ -1,9 +1,9 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
+import com.cutehacks.fontawesome 1.0
 
 import "./TestScreen"
-import "./FontAwesome"
 
 
 ApplicationWindow {
@@ -12,10 +12,6 @@ ApplicationWindow {
     height: 480
     title: qsTr("Hello World")
 
-    FontAwesome{
-        id: awesome
-        resource: "qrc:/FontAwesome/font/fontawesome-webfont.ttf"
-    }
 
     SwipeView {
         id: swipeView
@@ -26,15 +22,12 @@ ApplicationWindow {
         }
 
         Page {
-            Label {
-                //Font Awesome usage
-
-                text: awesome.icons.fa_ambulance  //icon set up
-                font.pointSize: 20                //icon size
-                anchors.centerIn: parent
-                //text: qsTr("Second page")
-
-            }
+            FAText {
+                    text: icons.ambulance
+                    anchors.centerIn: parent
+                    font.pixelSize: 72
+                    color: "steelblue"
+                }
         }
     }
 
