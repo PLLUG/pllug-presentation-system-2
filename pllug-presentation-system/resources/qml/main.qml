@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.0
 
 
 import "./TestScreen"
+import "./View"
 
 ApplicationWindow {
     visible: true
@@ -17,9 +18,11 @@ ApplicationWindow {
         currentIndex: tabBar.currentIndex
 
         Page1 {
+
         }
 
         Page {
+            View{anchors.fill: parent}
             Label {
                 text: qsTr("Second page")
                 anchors.centerIn: parent

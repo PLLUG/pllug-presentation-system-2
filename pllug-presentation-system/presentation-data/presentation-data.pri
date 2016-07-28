@@ -9,7 +9,10 @@ SOURCES += \
     $$PWD/paragraph.cpp \
     $$PWD/separator.cpp \
     $$PWD/htmlimport.cpp \
-    $$PWD/presentationelementfactory.cpp
+    $$PWD/presentationelementfactory.cpp \
+    $$PWD/presentationmodel.cpp \
+    $$PWD/slideproxymodel.cpp \
+    $$PWD/roleprovider.cpp
 
 HEADERS += \
     $$PWD/presentation.h \
@@ -24,6 +27,10 @@ HEADERS += \
     $$PWD/separator.h \
     $$PWD/htmlimport.h \
     $$PWD/abstractpresentationelementfactory.h \
-    $$PWD/presentationelementfactory.h
+    $$PWD/presentationelementfactory.h \
+    $$PWD/presentationmodel.h \
+    $$PWD/slideproxymodel.h \
+    $$PWD/iroleprovider.h \
+    $$PWD/roleprovider.h
 
 INCLUDEPATH += $$PWD

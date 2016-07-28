@@ -14,6 +14,10 @@ public:
     PresentationElement(const QString &html);
     virtual ~PresentationElement() = 0;
 
+    int x() const;
+    int y() const;
+    int width() const;
+    int height() const;
     QString toHtml() const;
 
 protected:
