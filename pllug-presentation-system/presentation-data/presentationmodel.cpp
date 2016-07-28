@@ -12,6 +12,9 @@ void PresentationModel::setPresentation(Presentation *presentation)
 
 int PresentationModel::rowCount(const QModelIndex &parent) const
 {
+    if (parent.column() > 0)
+        return 0;
+
     if(parent.isValid())
     {
         Slide *slide = static_cast<Slide *>(parent.internalPointer());
@@ -26,7 +29,7 @@ int PresentationModel::rowCount(const QModelIndex &parent) const
     }
     else
     {
-        return 0;
+        mPresentation->slideCount();
     }
 }
 
@@ -74,7 +77,7 @@ QVariant PresentationModel::data(const QModelIndex &index, int role) const
         }
         else
         {
-           return QString::number(index.row());
+            return QString::number(index.row());
         }
     }
     else
@@ -93,4 +96,44 @@ QVariant PresentationModel::headerData(int section, Qt::Orientation orientation,
     {
         return QVariant();
     }
+}
+
+QModelIndex PresentationModel::index(int row, int column, const QModelIndex &parent) const
+{
+    if (parent.column() > 0)
+        return QModelIndex();
+
+    if(parent.isValid())
+    {
+        Slide *slide = static_cast<Slide *>(parent.internalPointer());
+        if(slide)
+        {
+            return createIndex(row, column, slide->element(row));
+        }
+        else
+        {
+            return createIndex(row, column, mPresentation->slide(row));
+        }
+    }
+    else
+    {
+        return createIndex(row, column, mPresentation->slide(row));
+    }
+}
+
+QModelIndex PresentationModel::parent(const QModelIndex &index) const
+{
+    // TODO: Implement this method.
+    return QModelIndex();
+}
+
+QHash<int, QByteArray> PresentationModel::roleNames() const
+{
+    QHash<int, QByteArray> rHash;
+    rHash.insert(Roles::X, "X");
+    rHash.insert(Roles::Y, "Y");
+    rHash.insert(Roles::Width, "Width");
+    rHash.insert(Roles::Height, "Height");
+    rHash.insert(Roles::Html, "Html");
+    return rHash;
 }

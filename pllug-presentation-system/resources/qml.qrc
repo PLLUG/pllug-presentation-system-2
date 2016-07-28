@@ -6,4 +6,7 @@
         <file alias="Page1.qml">qml/TestScreen/Page1.qml</file>
         <file alias="Page1Form.ui.qml">qml/TestScreen/Page1Form.ui.qml</file>
     </qresource>
+    <qresource prefix="/View">
+        <file alias="View.qml">qml/View/View.qml</file>
+    </qresource>
 </RCC>
