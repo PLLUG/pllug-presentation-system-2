@@ -2,10 +2,11 @@
 #include <QQmlApplicationEngine>
 #include <QFile>
 #include <memory>
-#include "domdocumentdivider.h"
-#include "htmlimport.h"
 #include <QList>
 #include <QQmlContext>
+
+#include "domdocumentdivider.h"
+#include "htmlimport.h"
 #include "presentationelement.h"
 #include "presentationelementfactory.h"
 #include "presentationmodel.h"
