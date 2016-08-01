@@ -16,9 +16,7 @@ build_script:
 
     nmake
     
-    %QT_INSTALL_ROOT%\bin\windeployqt --qmldir %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\resources %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\release
-
-    %APPVEYOR_BUILD_FOLDER%\vc_redist.x64.exe /install /passive /norestart 
+    %QT_INSTALL_ROOT%\bin\windeployqt --qmldir %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\resources %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\release 
 
     cd %APPVEYOR_BUILD_FOLDER%\tests
 
