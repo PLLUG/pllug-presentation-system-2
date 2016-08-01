@@ -29,7 +29,3 @@ build_script:
     cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
   
     7z a pps2.zip release\
-    
-    cd release 
-    
-    pllug-presentation-system.exe
