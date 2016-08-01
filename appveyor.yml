@@ -8,13 +8,18 @@ build_script:
 
     %QT_INSTALL_ROOT%\bin\qtenv2.bat
 
-    "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+    "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64  
 
     cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
 
     qmake CONFIG+=release
 
     nmake
+    
+    %QT_INSTALL_ROOT%\bin\windeployqt --qmldir %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\resources %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\release
+
+    install:
+     - cinst vcredist2015
 
     cd %APPVEYOR_BUILD_FOLDER%\tests
 

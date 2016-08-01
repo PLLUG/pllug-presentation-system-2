@@ -2,6 +2,7 @@ QT += qml quick
 
 CONFIG += c++11
 
+
 include(presentation-data/presentation-data.pri)
 
 SOURCES += main.cpp
