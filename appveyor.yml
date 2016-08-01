@@ -25,3 +25,7 @@ build_script:
     nmake
 
     nmake tests
+    
+    cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
+  
+    7z a pps2.zip release\
