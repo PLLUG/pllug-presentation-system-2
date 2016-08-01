@@ -30,6 +30,6 @@ build_script:
   
     7z a pps2.zip release\
     
-    artifacts:
-     - path: pps2.zip
-     - name: pps2
+artifacts:
+ - path: pps2.zip
+ - name: pps2
