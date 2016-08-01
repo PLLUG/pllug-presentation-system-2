@@ -32,4 +32,4 @@ build_script:
     
 artifacts:
  - path: pps2.zip
- - name: pps2
+   name: pps2
