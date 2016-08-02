@@ -1,7 +1,7 @@
 #include "slide.h"
-
+#include <QDebug>
 #include <QtGlobal>
-
+#include "separator.h"
 /*!
  * \brief Public constructor.
  */
@@ -57,5 +57,23 @@ void Slide::addElement(std::unique_ptr<PresentationElement> element)
 
 PresentationElement *Slide::element(int index) const
 {
-    return mElementsList[index];
+    if(index >= 0 && index < mElementsList.count())
+    {
+        return mElementsList[index];
+    }
+    else
+    {
+        qWarning() << "Warning: Invalid slide element index.";
+        return new Separator("<br />");
+    }
+}
+
+QString Slide::toHtml() const
+{
+    QString rHtml;
+    for(int i = 0; i < elementsCount(); ++i)
+    {
+        rHtml.append(element(i)->toHtml());
+    }
+    return rHtml;
 }

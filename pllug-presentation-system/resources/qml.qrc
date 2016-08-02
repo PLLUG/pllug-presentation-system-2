@@ -7,6 +7,10 @@
         <file alias="Page1Form.ui.qml">qml/TestScreen/Page1Form.ui.qml</file>
     </qresource>
     <qresource prefix="/View">
-        <file alias="View.qml">qml/View/View.qml</file>
+        <file alias="SlideView.qml">qml/View/SlideView.qml</file>
+        <file alias="MainWindow.qml">qml/View/MainWindow.qml</file>
+        <file alias="PageIndicator.qml">qml/View/PageIndicator.qml</file>
+        <file alias="ToolBar.qml">qml/View/ToolBar.qml</file>
+        <file alias="SideBar.qml">qml/View/SideBar.qml</file>
     </qresource>
 </RCC>

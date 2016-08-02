@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
-    QFile htmlFile("D:/Qt_projects/SUMMERCAMP2016/pps2/pllug-presentation-system-2/tests/auto/resources/separator_headers.html");
+    QFile htmlFile("D:/Qt_projects/SUMMERCAMP2016/pps2/pllug-presentation-system-2/tests/auto/resources/multiple_slides.html");
     htmlFile.open(QFile::ReadOnly);
     QByteArray input = htmlFile.readAll();
     htmlFile.close();
@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     slideModel.setSlideNumber(0);
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("slideModel", &slideModel);
+    engine.rootContext()->setContextProperty("presentationModel", &presentationModel);
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
     return app.exec();

@@ -3,7 +3,8 @@
 #include "presentationmodel.h"
 
 SlideProxyModel::SlideProxyModel(QObject *parent):
-    QAbstractProxyModel(parent)
+    QAbstractProxyModel(parent),
+    mSlideNumber(0)
 {
 }
 
@@ -14,7 +15,16 @@ int SlideProxyModel::slideNumber() const
 
 void SlideProxyModel::setSlideNumber(int slideNumber)
 {
-    mSlideNumber = slideNumber;
+    if(slideNumber >= 0 && slideNumber < sourceModel()->rowCount())
+    {
+        mSlideNumber = slideNumber;
+        dataChangedHandler();
+    }
+}
+
+int SlideProxyModel::slideCount() const
+{
+    return sourceModel()->rowCount();
 }
 
 QModelIndex SlideProxyModel::index(int row, int column, const QModelIndex &parent) const
@@ -36,7 +46,7 @@ QModelIndex SlideProxyModel::index(int row, int column, const QModelIndex &paren
     }
     else
     {
-        Slide *slide = static_cast<Slide *>(sourceModel()->index(mSlideNumber,0).internalPointer());
+        Slide *slide = static_cast<Slide *>(sourceModel()->index(mSlideNumber, 0).internalPointer());
         return createIndex(row, column, slide->element(row));
     }
 }
@@ -137,4 +147,41 @@ QHash<int, QByteArray> SlideProxyModel::roleNames() const
     rHash.insert(PresentationModel::Roles::Height, "Height");
     rHash.insert(PresentationModel::Roles::Html, "Html");
     return rHash;
+}
+
+void SlideProxyModel::firstSlide()
+{
+    mSlideNumber = 0;
+    dataChangedHandler();
+}
+
+void SlideProxyModel::lastSlide()
+{
+    mSlideNumber = sourceModel()->rowCount() - 1;
+    dataChangedHandler();
+}
+
+void SlideProxyModel::previousSlide()
+{
+    if(mSlideNumber)
+    {
+        --mSlideNumber;
+       dataChangedHandler();
+    }
+}
+
+void SlideProxyModel::nextSlide()
+{
+    if(mSlideNumber != (sourceModel()->rowCount() - 1))
+    {
+        ++mSlideNumber;
+        dataChangedHandler();
+    }
+}
+
+void SlideProxyModel::dataChangedHandler()
+{
+    QModelIndex topleft = sourceModel()->index(0,0);
+    QModelIndex bottomRight = sourceModel()->index(sourceModel()->rowCount() - 1, 0);
+    dataChanged(topleft, bottomRight);
 }

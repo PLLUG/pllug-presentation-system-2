@@ -1,6 +1,8 @@
 import QtQuick 2.0
+import QtQuick.Layouts 1.1
 
-Column {
+ColumnLayout {
+    width: parent.width
     Repeater {
         model: slideModel
         delegate: Text{
