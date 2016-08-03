@@ -38,7 +38,8 @@ artifacts:
 
 deploy:
 - provider: GitHub
-  artifact: pps2          
+  artifact: pps2 
+  auth_token: repo  
   draft: false
   prerelease: false
   on:
