@@ -3,15 +3,19 @@ import QtQuick.Layouts 1.0
 
 Item {
     id: mainWindow
+
     width: parent.width
+
     SideBar{
         id: sideBar
-        height: parent.height
-        width: 250
+
         Component.onCompleted: {
             toolBar.sideBarButtonClicked.connect(sideBar.open)
             sideBar.currentSlideChanged.connect(sideBar.close)
         }
+
+        height: parent.height
+        width: 250
     }
 
     ToolBarPPS{
@@ -20,6 +24,7 @@ Item {
 
     SlideView {
         id: slideView
+
         anchors {
             topMargin: toolBar.height
             fill: parent
@@ -27,14 +32,15 @@ Item {
 
         PageIndicator{
             id: pageIndicator
+
+            Component.onCompleted: {
+                sideBar.currentSlideChanged.connect(pageIndicator.updateSlideIndexText)
+            }
+
             anchors{
                 bottom: parent.bottom
                 horizontalCenter: parent.horizontalCenter
                 bottomMargin: 10
-            }
-
-            Component.onCompleted: {
-                sideBar.currentSlideChanged.connect(pageIndicator.updateSlideIndexText)
             }
         }
     }

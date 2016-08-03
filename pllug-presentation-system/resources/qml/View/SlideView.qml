@@ -4,10 +4,14 @@ import QtQuick.Layouts 1.1
 ColumnLayout {
     width: parent.width
     height: parent.height
+    Layout.fillHeight: false
+
     Repeater {
-        model: slideModel
         width: parent.width
         height: parent.height
+
+        model: slideModel
+
         delegate: Rectangle{
             anchors{
                 top: parent.top
@@ -17,15 +21,14 @@ ColumnLayout {
                 right: parent.right
                 rightMargin: 15
             }
+            width: parent.width
 
-            width: parent.width
             Text{
-            width: parent.width
-            wrapMode: Text.WordWrap
-            text: Html
-            font.pixelSize: 25
-}
+                text: Html
+                font.pixelSize: 25
+                width: parent.width
+                wrapMode: Text.WordWrap
+            }
         }
     }
-    Layout.fillHeight: false
 }

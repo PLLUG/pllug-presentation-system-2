@@ -11,6 +11,8 @@ RowLayout{
         id: internal
         property int buttonWidth: 50
         property int buttonHeight: 20
+        property int buttonRadius: 7
+        property int fontPixelSize: 15
         property color buttonColor: "grey"
         property color buttonPressedColor: "black"
         property color buttonTextColor: "white"
@@ -22,106 +24,129 @@ RowLayout{
 
     Button{
         id: startButton
-        width: internal.buttonWidth
-        height: internal.buttonHeight
-        style: ButtonStyle{
-            background: Rectangle{
-                radius: 10
-                color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
-                anchors.margins: 5
-            }
-            label: FAText{
-                text: icons.angle_double_left
-                anchors.centerIn: parent
-                color: internal.buttonTextColor
-            }
-        }
+
         onClicked: {
             slideModel.firstSlide()
             updateSlideIndexText()
         }
-    }
-    Button{
-        id: previousSlideButton
+
         width: internal.buttonWidth
         height: internal.buttonHeight
         style: ButtonStyle{
             background: Rectangle{
-                id: previousSlideRect
-                radius: 10
+                radius: internal.buttonRadius
+                anchors.margins: 5
                 color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
             }
+
             label: FAText{
-                text: icons.angle_left
+                text: icons.angle_double_left
+                font.pixelSize: internal.fontPixelSize
                 anchors.centerIn: parent
                 color: internal.buttonTextColor
             }
         }
+
+    }
+
+    Button{
+        id: previousSlideButton
 
         onClicked: {
             slideModel.previousSlide()
             updateSlideIndexText()
         }
 
-    }
-    Rectangle{
-        id: slideIndexLabel
-        width: internal.buttonWidth
-        height: internal.buttonHeight
-        color: "lightgrey"
-        radius: 10
-        Text{
-            id: slideIndexText
-            anchors.centerIn: parent
-            color: "grey"
-            font.bold: true
-            text: slideModel.slideNumber() + 1 + " of " + slideModel.slideCount()
-        }
-
-    }
-    Button{
-        id: nextSlideButton
         width: internal.buttonWidth
         height: internal.buttonHeight
         style: ButtonStyle{
             background: Rectangle{
-                id:  nextSlideRect
-                radius: 10
+                id: previousSlideRect
+
+                radius: internal.buttonRadius
                 color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
             }
+
             label: FAText{
-                text: icons.angle_right
+                text: icons.angle_left
+                font.pixelSize: internal.fontPixelSize
                 anchors.centerIn: parent
                 color: internal.buttonTextColor
             }
         }
+    }
+
+    Rectangle{
+        id: slideIndexLabel
+
+        width: 80
+        height: 30
+        color: "lightgrey"
+        radius: internal.buttonRadius
+
+        Text{
+            id: slideIndexText
+
+            text: slideModel.slideNumber() + 1 + " of " + slideModel.slideCount()
+            font.pixelSize: internal.fontPixelSize + 8
+            anchors.centerIn: parent
+            color: "grey"
+        }
+    }
+
+    Button{
+        id: nextSlideButton
 
         onClicked: {
             slideModel.nextSlide()
             updateSlideIndexText()
         }
-    }
-    Button{
-        id: endButton
+
         width: internal.buttonWidth
         height: internal.buttonHeight
         style: ButtonStyle{
             background: Rectangle{
-                id:  endRect
-                radius: 10
+                id:  nextSlideRect
+
+                radius: internal.buttonRadius
                 color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
             }
+
             label: FAText{
-                text: icons.angle_double_right
+                text: icons.angle_right
+                font.pixelSize: internal.fontPixelSize
                 anchors.centerIn: parent
                 color: internal.buttonTextColor
             }
         }
 
 
+    }
+
+    Button{
+        id: endButton
+
         onClicked: {
             slideModel.lastSlide()
             updateSlideIndexText()
         }
+
+        width: internal.buttonWidth
+        height: internal.buttonHeight
+        style: ButtonStyle{
+            background: Rectangle{
+                id:  endRect
+
+                radius: internal.buttonRadius
+                color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
+            }
+
+            label: FAText{
+                text: icons.angle_double_right
+                font.pixelSize: internal.fontPixelSize
+                anchors.centerIn: parent
+                color: internal.buttonTextColor
+            }
+        }       
     }
 }

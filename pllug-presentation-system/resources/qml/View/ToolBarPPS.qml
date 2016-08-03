@@ -7,34 +7,40 @@ import com.cutehacks.fontawesome 1.0
 ToolBar {
     signal sideBarButtonClicked
 
-
     RowLayout {
         anchors.fill: parent
 
         ToolButton {
             id: menuButton
+
             anchors{
                 left: parent.left
                 margins: 10
             }
+
             FAText{
+                font.pixelSize: 20
                 text: icons.ellipsis_v
                 anchors.centerIn: parent
             }
         }
+
         ToolButton {
             id: sidebarButton
+
+            onClicked: {
+                sideBarButtonClicked()
+            }
+
             anchors{
                 left: menuButton.right
                 margins: 10
             }
+
             FAText{
+                font.pixelSize: 20
                 text: icons.bars
                 anchors.centerIn: parent
-            }
-
-            onClicked: {
-                sideBarButtonClicked()
             }
         }
     }
