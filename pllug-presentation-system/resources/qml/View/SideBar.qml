@@ -9,36 +9,66 @@ Drawer {
     signal currentSlideChanged
 
     contentItem: ListView {
-            spacing: 20
-        model: presentationModel
+        id: listView
+
+        spacing: 25
         width: 250
+
+        model: presentationModel
+
         delegate: Rectangle{
             id: slide
-            anchors.leftMargin: 10
-            anchors.rightMargin: 10
-            border.color: "black"
+            anchors{
+                left: parent.left
+                right: parent.right
+                leftMargin: 20
+                rightMargin: 20
+            }
             width: parent.width
-            height: 110
+            height: text.height + 8
             radius: 5
+
+            border.color: area.pressed ? "white" : "black"
+            color: area.pressed ? "blue" : "white"
+
             Text{
+                id: text
                 width: parent.width
                 wrapMode: Text.WordWrap
+                anchors{
+                    left: parent.left
+                    leftMargin: 5
+                    right: parent.right
+                    rightMargin: 5
+                    top: parent.top
+                    topMargin: 5
+                    bottom: parent.bottom
+                    bottomMargin: 5
+                }
                 text: Html
+                color: area.pressed ? "white" : "black"
             }
             Rectangle{
                 id: slideNumber
                 width: 20
                 height: 20
-                color: "grey"
+                color: area.pressed ? "white" : "grey"
                 radius: 5
-                anchors.right: parent.right
                 opacity: 0.5
+                anchors{
+                    rightMargin: 3
+                    right: parent.right
+                    top: parent.top
+                    topMargin: 3
+                }
                 Text{
                     text: (index + 1)
-                    font.bold: true
-                    color: "black"
-                    font.pixelSize: 15
-                    font.family: "Lucida Sans Unicode"
+                    color: area.pressed ? "white" : "black"
+                    font{
+                        bold: true
+                        pixelSize: 15
+                        family: "Lucida Sans Unicode"
+                    }
                     anchors.centerIn: parent
                 }
             }
@@ -49,12 +79,12 @@ Drawer {
                 onClicked: {
                     slideModel.setSlideNumber(index)
                     drawer.currentSlideChanged()
+
                 }
             }
         }
         ScrollIndicator.vertical: ScrollIndicator { }
-        highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
-        focus: true
+
     }
 }
 

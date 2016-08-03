@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Layouts 1.3
+import com.cutehacks.fontawesome 1.0
 
-Row{
+RowLayout{
     id: pageIndicator
 
     QtObject {
@@ -28,8 +30,9 @@ Row{
                 color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
                 anchors.margins: 5
             }
-            label: Text{
-                text: "<<"
+            label: FAText{
+                text: icons.angle_double_left
+                anchors.centerIn: parent
                 color: internal.buttonTextColor
             }
         }
@@ -48,8 +51,9 @@ Row{
                 radius: 10
                 color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
             }
-            label: Text{
-                text: "<"
+            label: FAText{
+                text: icons.angle_left
+                anchors.centerIn: parent
                 color: internal.buttonTextColor
             }
         }
@@ -85,8 +89,9 @@ Row{
                 radius: 10
                 color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
             }
-            label: Text{
-                text: ">"
+            label: FAText{
+                text: icons.angle_right
+                anchors.centerIn: parent
                 color: internal.buttonTextColor
             }
         }
@@ -106,8 +111,9 @@ Row{
                 radius: 10
                 color: control.pressed ? internal.buttonPressedColor : internal.buttonColor
             }
-            label: Text{
-                text: ">>"
+            label: FAText{
+                text: icons.angle_double_right
+                anchors.centerIn: parent
                 color: internal.buttonTextColor
             }
         }

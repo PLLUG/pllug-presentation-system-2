@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
     SlideProxyModel slideModel;
     slideModel.setSourceModel(&presentationModel);
     slideModel.setSlideNumber(0);
+
     QQmlApplicationEngine engine;
     engine.addImportPath(QStringLiteral("qrc:/"));
     engine.rootContext()->setContextProperty("slideModel", &slideModel);

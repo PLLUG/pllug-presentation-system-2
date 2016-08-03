@@ -13,8 +13,4 @@
         <file alias="ToolBarPPS.qml">qml/View/ToolBarPPS.qml</file>
         <file alias="SideBar.qml">qml/View/SideBar.qml</file>
     </qresource>
-    <qresource prefix="/ToolBarIcons">
-        <file alias="menu.png">qml/ToolBarIcons/menu.png</file>
-        <file alias="sidebar.png">qml/ToolBarIcons/sidebar.png</file>
-    </qresource>
 </RCC>
