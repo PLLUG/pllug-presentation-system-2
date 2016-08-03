@@ -3,6 +3,10 @@ version: 0.0.1-{build}-{branch}
 
 install:
   - ps: Start-FileDownload 'https://www.qpm.io/download/v0.10.0/windows_386/qpm.exe'
+  - cmd: >-
+  
+      cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
+      qpm install
     
 pull_requests:
   do_not_increment_build_number: true
@@ -10,10 +14,6 @@ environment:
   QT_INSTALL_ROOT: C:\Qt\5.7\msvc2015_64
 build_script:
 - cmd: >-
-
-    cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
-
-    qpm install
 
     %QT_INSTALL_ROOT%\bin\qtenv2.bat
 
