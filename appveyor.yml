@@ -35,4 +35,5 @@ artifacts:
  - path: pps2.zip
    name: pps2
 
+appveyor PushArtifact %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\pps2.zip 
 
