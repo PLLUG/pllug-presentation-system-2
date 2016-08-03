@@ -34,3 +34,4 @@ after_build:
 artifacts:
  - path: pps2.zip
    name: pps2
+appveyor PushArtifact pps2
