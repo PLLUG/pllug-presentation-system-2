@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
     slideModel.setSourceModel(&presentationModel);
     slideModel.setSlideNumber(0);
     QQmlApplicationEngine engine;
+    engine.addImportPath(QStringLiteral("qrc:/"));
     engine.rootContext()->setContextProperty("slideModel", &slideModel);
     engine.rootContext()->setContextProperty("presentationModel", &presentationModel);
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));

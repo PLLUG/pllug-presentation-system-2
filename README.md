@@ -7,6 +7,10 @@
 
 "PLLUG Presentation System 2.0"  is an open source, cross-platform application to create, edit and show presentations. 
 
+#### Important
+
+After cloning PPS 2.0 you need to follow this [steps](https://alexchmykhalo.gitbooks.io/pllug-presentation-system-2-documents-and-specifi/content/doc/workflow/qpm_packages_installation.html) in order to be able to work with the project. 
+
 To read more about development process, go to our ["Workflow"](https://alexchmykhalo.gitbooks.io/pllug-presentation-system-2-documents-and-specifi/content/doc/workflow/workflow.html) page. 
 
 Full documentation about project in "easy to read" format is locates on our [GitBook](https://alexchmykhalo.gitbooks.io/pllug-presentation-system-2-documents-and-specifi/content/).

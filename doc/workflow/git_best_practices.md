@@ -51,7 +51,7 @@ Create a name that allow everyone to easily recognize what kind of changes it co
 
 **Examples (Good):**
 
-`feature-21-CommandLinedParser`
+`feature/21-CommandLinedParser`
 
 **Examples (Bad):**
 
