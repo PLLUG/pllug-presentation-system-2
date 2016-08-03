@@ -1,7 +1,7 @@
 version: 0.0.1-{build}-{branch}
 
 install:  
-  - cmd: >- cd  %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
+  - cmd: cd  %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
   - ps: Start-FileDownload 'https://www.qpm.io/download/v0.10.0/windows_386/qpm.exe'
 pull_requests:
   do_not_increment_build_number: true
