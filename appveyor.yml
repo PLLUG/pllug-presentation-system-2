@@ -1,7 +1,7 @@
 version: 0.0.1-{build}-{branch}
 
-install: 
-  - ps: Start-FileDownload 'https://www.qpm.io/download/v0.10.0/windows_386/qpm.exe' -FileName "..\pllug-presentation-system\qpm.exe"
+install:  
+  - curl -s https://www.qpm.io/download/v0.10.0/windows_386/qpm.exe -o ..\pllug-presentation-system\qpm.exe
 pull_requests:
   do_not_increment_build_number: true
 environment:
