@@ -9,28 +9,36 @@ Drawer {
     signal currentSlideChanged
 
     contentItem: ListView {
+            spacing: 20
         model: presentationModel
-
+        width: 250
         delegate: Rectangle{
+            id: slide
+            anchors.leftMargin: 10
+            anchors.rightMargin: 10
             border.color: "black"
-            width: 250
+            width: parent.width
             height: 110
+            radius: 5
             Text{
                 width: parent.width
                 wrapMode: Text.WordWrap
                 text: Html
             }
             Rectangle{
-                width: 25
-                height: 25
-                color: "#ffffff"
-                border.color: "black"
-
+                id: slideNumber
+                width: 20
+                height: 20
+                color: "grey"
+                radius: 5
+                anchors.right: parent.right
+                opacity: 0.5
                 Text{
                     text: (index + 1)
                     font.bold: true
-                    color: "red"
-                    font.pixelSize: 20
+                    color: "black"
+                    font.pixelSize: 15
+                    font.family: "Lucida Sans Unicode"
                     anchors.centerIn: parent
                 }
             }
@@ -45,6 +53,8 @@ Drawer {
             }
         }
         ScrollIndicator.vertical: ScrollIndicator { }
+        highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+        focus: true
     }
 }
 

@@ -5,6 +5,7 @@ ColumnLayout {
     width: parent.width
     Repeater {
         model: slideModel
+        width: parent.width
         delegate: Text{
             width: parent.width
             wrapMode: Text.WordWrap

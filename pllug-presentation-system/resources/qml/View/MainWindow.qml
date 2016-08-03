@@ -13,7 +13,7 @@ Item {
         }
     }
 
-    ToolBar{
+    ToolBarPPS{
         id: toolBar
     }
 
@@ -29,6 +29,7 @@ Item {
             anchors{
                 bottom: parent.bottom
                 horizontalCenter: parent.horizontalCenter
+                bottomMargin: 10
             }
 
             Component.onCompleted: {

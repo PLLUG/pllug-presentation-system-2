@@ -5,25 +5,29 @@ import QtQuick.Controls.Styles 1.4
 
 ToolBar {
     signal sideBarButtonClicked
+
     RowLayout {
         anchors.fill: parent
+
         ToolButton {
             id: menuButton
             width: 50
             height: 20
-            Text {
-                text: "menu"
-                anchors.left: parent.left
+            anchors{
+                left: parent.left
+                margins: 10
             }
+            iconSource: "qrc:/ToolBarIcons/menu.png"
         }
         ToolButton {
             id: sidebarButton
             width: 50
             height: 20
-            Text {
-                text: "sidebar"
-                anchors.left: menuButton.right
+            anchors{
+                left: menuButton.right
+                margins: 10
             }
+            iconSource: "qrc:/ToolBarIcons/sidebar.png"
             onClicked: {
                 sideBarButtonClicked()
             }
