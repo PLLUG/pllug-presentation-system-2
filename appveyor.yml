@@ -44,6 +44,6 @@ deploy:
   draft: false
   prerelease: false
   on:
-    branch: feature-24-Deployment-script                
+    branch: development                
     appveyor_repo_tag: true
 
