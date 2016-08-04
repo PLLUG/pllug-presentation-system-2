@@ -2,10 +2,6 @@
     <qresource prefix="/">
         <file alias="main.qml">qml/main.qml</file>
     </qresource>
-    <qresource prefix="/TestScreen">
-        <file alias="Page1.qml">qml/TestScreen/Page1.qml</file>
-        <file alias="Page1Form.ui.qml">qml/TestScreen/Page1Form.ui.qml</file>
-    </qresource>
     <qresource prefix="/View">
         <file alias="SlideView.qml">qml/View/SlideView.qml</file>
         <file alias="MainWindow.qml">qml/View/MainWindow.qml</file>
