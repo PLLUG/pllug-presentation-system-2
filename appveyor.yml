@@ -40,7 +40,7 @@ deploy:
 - provider: GitHub
   artifact: pps2 
   auth_token: 
-    secure: b6a94c7f088cd9c3ad8ee2918f72a304c5953960   
+    secure: IDQ8bYXK8TxYxQF4H/By5OjvQSCTAxhy8CqqexZxavzTTIFGAmsjk/oREha3B0GX   
   draft: false
   prerelease: false
   description: '.zip folder added'
