@@ -44,7 +44,7 @@ deploy:
   draft: false
   prerelease: false
   description: '.zip folder added'
-  release: v1.0
+  #release: v1.0
   on:
     #branch: feature-24-Deployment-script                
     appveyor_repo_tag: true
