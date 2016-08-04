@@ -43,7 +43,9 @@ deploy:
     secure: kLHaS4qwZf3TzvPE302Z5bpRIyQzLiX+ERwrVERcHQxap0tQNFfO7akoQRFRMOXf  
   draft: false
   prerelease: false
+  description: '.zip folder added'
+  release: v1.0
   on:
-    branch: development                
+    branch: feature-24-Deployment-script                
     appveyor_repo_tag: true
 
