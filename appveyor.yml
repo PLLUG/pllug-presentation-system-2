@@ -3,7 +3,7 @@ pull_requests:
   do_not_increment_build_number: true
 environment:
   QT_INSTALL_ROOT: C:\Qt\5.7\msvc2015_64
-  #appveyor_repo_tag: true
+  appveyor_repo_tag: true
 build_script:
 - cmd: >-
 
