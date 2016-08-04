@@ -7,7 +7,7 @@ build_script:
 - cmd: >-
     git submodule add https://github.com/PLLUG/pandoc-slave.git pandoc-slave
 	
-	git submodule init
+    git submodule init
   
     %QT_INSTALL_ROOT%\bin\qtenv2.bat
 
