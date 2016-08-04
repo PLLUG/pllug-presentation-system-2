@@ -1,0 +1,3 @@
+[submodule "pandoc-slave"]
+	path = pandoc-slave
+	url = https://github.com/SMHFandA/pandoc-slave.git
