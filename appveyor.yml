@@ -40,7 +40,7 @@ deploy:
 - provider: GitHub
   artifact: pps2 
   auth_token: 
-    secure: duOiE54Eitg0mcdI+D8ZhQNpbs62zBC83SUK4NJugRJ9Pcy+T9Np4Vh8MDDnFZmD  
+    secure: kLHaS4qwZf3TzvPE302Z5bpRIyQzLiX+ERwrVERcHQxap0tQNFfO7akoQRFRMOXf  
   draft: false
   prerelease: false
   on:
