@@ -41,8 +41,7 @@ artifacts:
 deploy:
 - provider: GitHub
   artifact: pps2 
-  auth_token: 
-   my_variable   
+  auth_token: my_variable   
   draft: false
   prerelease: false
   description: '.zip folder added'
