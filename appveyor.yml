@@ -4,9 +4,8 @@ pull_requests:
 environment:
   QT_INSTALL_ROOT: C:\Qt\5.7\msvc2015_64
   appveyor_repo_tag: true
-  environment:
-    my_variable:
-      secure: Ef75dfrZSDSRMOmdjgpr0s42xA7JTPT3MKF+AGqpQwI=
+  my_variable:
+    secure: Ef75dfrZSDSRMOmdjgpr0s42xA7JTPT3MKF+AGqpQwI=
 build_script:
 - cmd: >-
 
