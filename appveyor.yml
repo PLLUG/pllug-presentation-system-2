@@ -42,12 +42,12 @@ deploy:
 - provider: GitHub
   artifact: pps2 
   auth_token: 
-    secure: 2yo54odk66rumww7v4pj  
+    secure: Ef75dfrZSDSRMOmdjgpr0s42xA7JTPT3MKF+AGqpQwI=  
   draft: false
   prerelease: false
   description: '.zip folder added'
   #release: v1.0
   on:
-    #branch: feature-24-Deployment-script                
+    branch: feature-24-Deployment-script                
     appveyor_repo_tag: true
 
