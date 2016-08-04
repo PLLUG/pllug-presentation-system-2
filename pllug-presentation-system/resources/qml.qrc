@@ -9,7 +9,6 @@
     <qresource prefix="/qml files">
         <file alias="GridMenu.qml">qml/qml files/GridMenu.qml</file>
         <file alias="RecentDelegateModel.qml">qml/qml files/RecentDelegateModel.qml</file>
-        <file alias="throneroom.jpg">qml/qml files/throneroom.jpg</file>
         <file alias="MainToolbar.qml">qml/qml files/MainToolbar.qml</file>
     </qresource>
 </RCC>

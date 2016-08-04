@@ -39,43 +39,31 @@ Flickable {
 
         ListElement {
             presentationName: "Presentation name1"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
-        }
-        ListElement {
-            presentationName: "Presentation name2"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
-        }
-        ListElement {
-            presentationName: "Presentation name3"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
+            imageSrc: ""
         }
         ListElement {
             presentationName: "Presentation name1"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
-        }
-        ListElement {
-            presentationName: "Presentation name2"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
-        }
-        ListElement {
-            presentationName: "Presentation name3"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
+            imageSrc: ""
         }
         ListElement {
             presentationName: "Presentation name1"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
+            imageSrc: ""
         }
         ListElement {
-            presentationName: "Presentation name2"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
+            presentationName: "Presentation name1"
+            imageSrc: ""
         }
         ListElement {
-            presentationName: "Presentation name3"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
+            presentationName: "Presentation name1"
+            imageSrc: ""
         }
         ListElement {
-            presentationName: "Presentation name3"
-            imageSrc: "qrc:/qml files/throneroom.jpg"
+            presentationName: "Presentation name1"
+            imageSrc: ""
+        }
+        ListElement {
+            presentationName: "Presentation name1"
+            imageSrc: ""
         }
     }
 }
