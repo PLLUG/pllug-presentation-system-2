@@ -4,37 +4,35 @@ import QtQuick.Layouts 1.0
 
 
 import "./TestScreen"
+import "./qml files"
 
 ApplicationWindow {
-    visible: true
-    width: 640
+    id: window
+    width: 700
     height: 480
-    title: qsTr("Hello World")
+    visible: true
+    title: "Qt Quick Controls 2"
 
-    SwipeView {
-        id: swipeView
-        anchors.fill: parent
-        currentIndex: tabBar.currentIndex
+    Rectangle {
+        id: elements
+        width: window.width;
+        height: window.height
 
-        Page1 {
-        }
+        FocusScope {
+            id: mainView
+            width: parent.width; height: parent.height
 
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
+            GridMenu {
+                id: gridMenu
+                anchors.fill: parent
+                width: parent.width;
+                height:parent.height
             }
         }
     }
 
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-        TabButton {
-            text: qsTr("First")
-        }
-        TabButton {
-            text: qsTr("Second")
-        }
-    }
+    header: MainToolbar { }
+
+
+
 }
