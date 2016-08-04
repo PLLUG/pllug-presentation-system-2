@@ -4,6 +4,9 @@ pull_requests:
 environment:
   QT_INSTALL_ROOT: C:\Qt\5.7\msvc2015_64
   appveyor_repo_tag: true
+  environment:
+    my_variable:
+      secure: Ef75dfrZSDSRMOmdjgpr0s42xA7JTPT3MKF+AGqpQwI=
 build_script:
 - cmd: >-
 
@@ -39,8 +42,7 @@ artifacts:
 deploy:
 - provider: GitHub
   artifact: pps2 
-  auth_token: 
-    secure: Ef75dfrZSDSRMOmdjgpr0s42xA7JTPT3MKF+AGqpQwI=  
+  auth_token: my_variable  
   draft: false
   prerelease: false
   description: '.zip folder added'
