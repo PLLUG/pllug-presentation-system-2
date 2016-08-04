@@ -46,28 +46,28 @@ QVariant PresentationModel::data(const QModelIndex &index, int role) const
         Slide *slide = static_cast<Slide *>(index.internalPointer());
         if(slide)
         {
-            PresentationElement *element = slide->element(index.row());
             switch(role)
             {
-            case Roles::X :
-            {
-                return QString::number(element->x());
-            }
-            case Roles::Y :
-            {
-                return QString::number(element->y());
-            }
-            case Roles::Width :
-            {
-                return QString::number(element->width());
-            }
-            case Roles::Height :
-            {
-                return QString::number(element->height());
-            }
+            // TODO: Implement actions in these cases.
+//            case Roles::X :
+//            {
+//                return QString::number(element->x());
+//            }
+//            case Roles::Y :
+//            {
+//                return QString::number(element->y());
+//            }
+//            case Roles::Width :
+//            {
+//                return QString::number(element->width());
+//            }
+//            case Roles::Height :
+//            {
+//                return QString::number(element->height());
+//            }
             case Roles::Html :
             {
-                return element->toHtml();
+                return slide->toHtml();
             }
             default:
             {
@@ -77,7 +77,7 @@ QVariant PresentationModel::data(const QModelIndex &index, int role) const
         }
         else
         {
-            return QString::number(index.row());
+            return QVariant();
         }
     }
     else

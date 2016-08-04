@@ -14,8 +14,10 @@ class SlideProxyModel : public QAbstractProxyModel
 public:
     explicit SlideProxyModel(QObject *parent = Q_NULLPTR);
 
-    int slideNumber() const;
-    void setSlideNumber(int slideNumber);
+    Q_INVOKABLE int slideNumber() const;
+    Q_INVOKABLE void setSlideNumber(int slideNumber);
+
+    Q_INVOKABLE int slideCount() const;
 
     Q_INVOKABLE virtual QModelIndex index(int row, int column,
                                           const QModelIndex &parent = QModelIndex()) const override;
@@ -26,6 +28,13 @@ public:
     Q_INVOKABLE virtual QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
     virtual QVariant data(const QModelIndex &proxyIndex, int role = Qt::DisplayRole) const override;
     virtual QHash<int, QByteArray> roleNames() const override;
+
+    Q_INVOKABLE void firstSlide();
+    Q_INVOKABLE void lastSlide();
+    Q_INVOKABLE void previousSlide();
+    Q_INVOKABLE void nextSlide();
+
+    void dataChangedHandler();
 
 private:
     int mSlideNumber;

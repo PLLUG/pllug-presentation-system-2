@@ -2,6 +2,8 @@ QT += xml qml quick
 
 CONFIG += c++14
 
+CONFIG += silent
+
 include(presentation-data/presentation-data.pri)
 
 SOURCES += main.cpp
@@ -14,3 +16,5 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
+include($$PWD/vendor/vendor.pri)
+
