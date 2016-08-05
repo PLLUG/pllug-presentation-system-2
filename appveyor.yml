@@ -35,9 +35,11 @@ build_script:
   
     7z a pps2.zip release\
     
+    move %APPVEYOR_BUILD_FOLDER%\pps2.zip %APPVEYOR_BUILD_FOLDER%\setup\packages\com.vendor.product\data
+    
     cd %APPVEYOR_BUILD_FOLDER%\setup
     
-    QT_IFW_ROOT\bin\binarycreator.exe -c config\config.xml -p packages setup.exe
+    %QT_IFW_ROOT%\bin\binarycreator.exe -c config\config.xml -p packages setup.exe
     
     
 
