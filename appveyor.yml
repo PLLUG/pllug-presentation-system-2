@@ -39,7 +39,7 @@ build_script:
     
     cd %APPVEYOR_BUILD_FOLDER%\setup
     
-    %QT_IFW_ROOT%\bin\binarycreator.exe -c config\config.xml -p packages setup.exe
+    %QT_IFW_ROOT%\bin\binarycreator.exe -c %APPVEYOR_BUILD_FOLDER%\setup\config\config.xml -p %APPVEYOR_BUILD_FOLDER%\setup\packages setup.exe
     
     
 
