@@ -29,7 +29,6 @@ Item {
                 text: presentationName
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-
             }
         }
         Rectangle {

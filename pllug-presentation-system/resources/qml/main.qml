@@ -5,35 +5,14 @@ import QtQuick.Layouts 1.0
 import "./TestScreen"
 import "./qml files"
 
-
 ApplicationWindow {
     id: window
     width: 700
     height: 480
     visible: true
-    title: "Qt Quick Controls 2"
+    title: "PLLUG Presentation System 2.0"
 
-    Rectangle {
-        id: elements
-        width: window.width;
-        height: window.height
-
-        FocusScope {
-            id: mainView
-            width: parent.width; height: parent.height
-
-
-            GridMenu {
-                id: gridMenu
-                anchors.fill: parent
-                width: parent.width;
-                height:parent.height
-            }
-        }
-    }
+    StartupScreen {}
 
     header: MainToolbar { }
-
-
-
 }
