@@ -54,8 +54,7 @@ deploy:
   auth_token: Ef75dfrZSDSRMOmdjgpr0s42xA7JTPT3MKF+AGqpQwI=  
   draft: false
   prerelease: false
-  description: '.zip folder added'
-  #release: v1.0
+  description: ''
   on:
     branch: feature-24-Deployment-script                
     appveyor_repo_tag: true
