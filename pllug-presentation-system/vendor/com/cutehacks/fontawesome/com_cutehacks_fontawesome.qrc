@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="com/cutehacks/fontawesome">
+        <file>qmldir</file>
+        <file>FAText.qml</file>
+        <file>FAButton.qml</file>
+        <file>fontawesome-webfont.ttf</file>
+        <file>Gallery.qml</file>
+    </qresource>
+</RCC>
