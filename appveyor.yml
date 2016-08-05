@@ -3,6 +3,7 @@ pull_requests:
   do_not_increment_build_number: true
 environment:
   QT_INSTALL_ROOT: C:\Qt\5.7\msvc2015_64
+  QT_IFW_ROOT: C:\Qt\QtIFW2.0.3
   appveyor_repo_tag: true
 
 build_script:
@@ -33,6 +34,12 @@ build_script:
     move %APPVEYOR_BUILD_FOLDER%\vc_redist.x64.exe %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\release 
   
     7z a pps2.zip release\
+    
+    cd setup
+    
+    QT_IFW_ROOT\bin\binarycreator.exe -c config\config.xml -p packages setup.exe
+    
+    
 
 after_build:    
 artifacts:
