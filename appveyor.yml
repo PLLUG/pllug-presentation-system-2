@@ -47,10 +47,12 @@ after_build:
 artifacts:
  - path: pps2.zip
    name: pps2
+ - path: setup.exe 
+   name: setup 
 
 deploy:
 - provider: GitHub
-  artifact: pps2 
+  artifact: pps2, setup
   auth_token: Ef75dfrZSDSRMOmdjgpr0s42xA7JTPT3MKF+AGqpQwI=  
   draft: false
   prerelease: false
