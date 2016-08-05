@@ -2,9 +2,9 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
-
 import "./TestScreen"
 import "./qml files"
+
 
 ApplicationWindow {
     id: window
@@ -21,6 +21,7 @@ ApplicationWindow {
         FocusScope {
             id: mainView
             width: parent.width; height: parent.height
+
 
             GridMenu {
                 id: gridMenu
