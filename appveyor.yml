@@ -3,7 +3,7 @@ pull_requests:
   do_not_increment_build_number: true
 environment:
   QT_INSTALL_ROOT: C:\Qt\5.7\msvc2015_64
-  QT_IFW_ROOT: C:\Qt\QtIFW2.0.3
+  QT_IFW_ROOT: C:\Qt\QtIFW2.0.1
   appveyor_repo_tag: true
 
 build_script:
@@ -39,9 +39,9 @@ build_script:
     
     cd %APPVEYOR_BUILD_FOLDER%\setup
     
-    cd %QT_IFW_ROOT%\bin
+    #cd %QT_IFW_ROOT%\bin
     
-    #%QT_IFW_ROOT%\bin\binarycreator.exe -c %APPVEYOR_BUILD_FOLDER%\setup\config\config.xml -p %APPVEYOR_BUILD_FOLDER%\setup\packages setup.exe
+    %QT_IFW_ROOT%\bin\binarycreator.exe -c %APPVEYOR_BUILD_FOLDER%\setup\config\config.xml -p %APPVEYOR_BUILD_FOLDER%\setup\packages setup.exe
     
     
 
