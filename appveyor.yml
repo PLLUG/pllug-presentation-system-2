@@ -35,7 +35,7 @@ build_script:
   
     7z a pps2.zip release\
     
-    move %APPVEYOR_BUILD_FOLDER%\pps2.zip %APPVEYOR_BUILD_FOLDER%\setup\packages\com.vendor.product\data
+    move %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\pps2.zip %APPVEYOR_BUILD_FOLDER%\setup\packages\com.vendor.product\data
     
     cd %APPVEYOR_BUILD_FOLDER%\setup
     
