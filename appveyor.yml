@@ -35,7 +35,7 @@ build_script:
   
     7z a pps2.zip release\
     
-    cd setup
+    cd %APPVEYOR_BUILD_FOLDER%\setup
     
     QT_IFW_ROOT\bin\binarycreator.exe -c config\config.xml -p packages setup.exe
     
