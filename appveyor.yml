@@ -29,9 +29,7 @@ build_script:
 
     nmake tests
     
-    cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
-    
-    move %APPVEYOR_BUILD_FOLDER%\vc_redist.x64.exe %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\release 
+    cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system 
   
     7z a pps2.zip release\
     
