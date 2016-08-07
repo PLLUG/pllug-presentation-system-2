@@ -51,10 +51,10 @@ deploy:
 - provider: GitHub
   artifact: setup
   auth_token:
-    secure: M4Yp9VK/hzxr9UMHPkmxGm5Pk088viFk2e/dsRUnKoaBs35rWYAc0Yu/rDldok4V 
+    secure: 3ib4M8LfvcuGtxK879DSM2ctLDIq1k6WEIFI0pVxKvU0pah3lGeTs0OHfwUs8t5q 
   draft: false
   prerelease: false
-  description: 'aaaaaaaaaaaa'
+  description: ''
   on:                
     appveyor_repo_tag: true
 
