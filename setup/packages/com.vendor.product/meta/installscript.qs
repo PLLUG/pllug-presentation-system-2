@@ -47,7 +47,7 @@ Component.prototype.createOperations = function()
     try {
         // call the base create operations function
         component.createOperations();
-		component.addElevatedOperation("Execute", "@TargetDir@/release/vc_redist.x64.exe", "/quiet", "/norestart")
+		component.addElevatedOperation("Execute", "@TargetDir@/release/vcredist_x64.exe", "/quiet", "/norestart")
 		component.addElevatedOperation("CreateShortcut", "@TargetDir@/release/pllug-presentation-system.exe", "PPS2.lnk")
 		
     } catch (e) {
