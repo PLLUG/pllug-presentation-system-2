@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
-    <Name>Your application</Name>
+    <Name>PLLUG Presentation System 2</Name>
     <Version>1.0.0</Version>
-    <Title>Your application Installer</Title>
+    <Title>PPS2 Installer</Title>
     <Publisher>Your vendor</Publisher>
-    <StartMenuDir>Super App</StartMenuDir>
+    <StartMenuDir>PPS2</StartMenuDir>
     <TargetDir>@ApplicationsDir@/PLLUG/PPS2</TargetDir>
 </Installer>
