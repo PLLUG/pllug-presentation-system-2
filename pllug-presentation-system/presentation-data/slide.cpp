@@ -57,16 +57,15 @@ void Slide::addElement(std::unique_ptr<PresentationElement> element)
 
 PresentationElement *Slide::element(int index) const
 {
-    PresentationElement *rElement;
     if(index >= 0 && index < mElementsList.count())
     {
-        rElement = mElementsList[index];
+        return mElementsList[index];
     }
     else
     {
         qWarning() << "Warning: Invalid slide element index.";
+        return new Separator("<hr />");
     }
-    return rElement;
 }
 
 QString Slide::toHtml() const
