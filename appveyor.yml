@@ -12,8 +12,6 @@ build_script:
 
     cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
 
-    qpm install
-
     git submodule -q update --init
 
     qmake CONFIG+=release
