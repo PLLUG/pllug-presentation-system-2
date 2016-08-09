@@ -4,8 +4,6 @@ import QtQuick.Layouts 1.0
 Item {
     id: mainWindow
 
-    width: parent.width
-
     SideBar{
         id: sideBar
 

@@ -6,7 +6,7 @@ environment:
 build_script:
 - cmd: >-
     
-    git submodule init
+    git submodule -q update --init
     
     %QT_INSTALL_ROOT%\bin\qtenv2.bat
 

@@ -12,7 +12,6 @@ ApplicationWindow {
     MainWindow{
         id: mainWindow
 
-        width: parent.width
-        height: parent.height
+        anchors.fill: parent
     }
 }
