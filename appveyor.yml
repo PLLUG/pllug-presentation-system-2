@@ -11,7 +11,7 @@ build_script:
     "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
 
     cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
-	
+
 	git submodule -q update --init
 
     qmake CONFIG+=release
