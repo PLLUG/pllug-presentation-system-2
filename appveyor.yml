@@ -12,7 +12,7 @@ build_script:
 
     cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
 
-	git submodule -q update --init
+    git submodule -q update --init
 
     qmake CONFIG+=release
 
