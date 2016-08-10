@@ -2,6 +2,8 @@
 #include <QDebug>
 #include <QtGlobal>
 #include "separator.h"
+#include "presentationelementfactory.h"
+
 /*!
  * \brief Public constructor.
  */
@@ -23,7 +25,7 @@ Slide::~Slide()
  */
 Slide::Slide(const Slide &other)
 {
-    Q_UNUSED(other)
+    *this = other;
 }
 
 /*!
@@ -31,8 +33,12 @@ Slide::Slide(const Slide &other)
  */
 Slide &Slide::operator=(const Slide &other)
 {
-    Q_UNUSED(other)
-
+    qDeleteAll(mElementsList);
+    PresentationElementFactory factory;
+    for(auto elem: other.mElementsList)
+    {
+        mElementsList.append(factory.create(elem->toHtml()).release());
+    }
     return  *this;
 }
 

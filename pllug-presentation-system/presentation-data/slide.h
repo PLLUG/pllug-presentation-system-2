@@ -27,6 +27,7 @@ public:
     PresentationElement* element(int index) const;
 
     QString toHtml() const;
+
 private:
     QVector<PresentationElement *> mElementsList;
 };

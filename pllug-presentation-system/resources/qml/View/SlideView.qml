@@ -6,7 +6,7 @@ ColumnLayout {
     height: parent.height
     Layout.fillHeight: false
 
-    Repeater {
+    ListView {
         width: parent.width
         height: parent.height
 

@@ -26,6 +26,7 @@ public:
     void appendSlide(std::unique_ptr<Slide> slide);
 
     Slide *slide(int index) const;
+
 private:
     QVector<Slide *> mSlideList;
 };
