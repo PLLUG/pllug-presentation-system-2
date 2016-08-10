@@ -34,8 +34,6 @@ public:
     Q_INVOKABLE void previousSlide();
     Q_INVOKABLE void nextSlide();
 
-    void dataChangedHandler();
-
 private:
     int mSlideNumber;
 };

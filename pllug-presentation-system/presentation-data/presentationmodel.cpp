@@ -12,25 +12,28 @@ void PresentationModel::setPresentation(Presentation *presentation)
 
 int PresentationModel::rowCount(const QModelIndex &parent) const
 {
+    int rRowCount = 0;
     if (parent.column() > 0)
-        return 0;
+        return rRowCount;
 
     if(parent.isValid())
     {
         Slide *slide = static_cast<Slide *>(parent.internalPointer());
         if(slide)
         {
-            return slide->elementsCount();
+            rRowCount = slide->elementsCount();
         }
         else
         {
-            mPresentation->slideCount();
+            rRowCount = mPresentation->slideCount();
         }
     }
     else
     {
-        mPresentation->slideCount();
+        rRowCount = mPresentation->slideCount();
     }
+
+    return rRowCount;
 }
 
 int PresentationModel::columnCount(const QModelIndex &parent) const
@@ -78,37 +81,37 @@ QVariant PresentationModel::data(const QModelIndex &index, int role) const
 
 QVariant PresentationModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
+    QVariant rHeaderData;
     if(orientation == Qt::Horizontal)
     {
-        return tr("Slides");
+        rHeaderData = tr("Slides");
     }
-    else
-    {
-        return QVariant();
-    }
+    return rHeaderData;
 }
 
 QModelIndex PresentationModel::index(int row, int column, const QModelIndex &parent) const
 {
+    QModelIndex rIndex;
     if (parent.column() > 0)
-        return QModelIndex();
+        return rIndex;
 
     if(parent.isValid())
     {
         Slide *slide = static_cast<Slide *>(parent.internalPointer());
         if(slide)
         {
-            return createIndex(row, column, slide->element(row));
+            rIndex = createIndex(row, column, slide->element(row));
         }
         else
         {
-            return createIndex(row, column, mPresentation->slide(row));
+            rIndex = createIndex(row, column, mPresentation->slide(row));
         }
     }
     else
     {
-        return createIndex(row, column, mPresentation->slide(row));
+        rIndex = createIndex(row, column, mPresentation->slide(row));
     }
+    return rIndex;
 }
 
 QModelIndex PresentationModel::parent(const QModelIndex &index) const

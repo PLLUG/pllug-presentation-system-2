@@ -5,7 +5,6 @@
 #include <QList>
 
 class Presentation;
-class QByteArray;
 class PresentationElementFactory;
 class PresentationElement;
 
