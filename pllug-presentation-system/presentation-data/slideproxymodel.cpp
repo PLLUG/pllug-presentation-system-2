@@ -55,6 +55,7 @@ QModelIndex SlideProxyModel::index(int row, int column, const QModelIndex &paren
 QModelIndex SlideProxyModel::parent(const QModelIndex &child) const
 {
     // TODO: Implement this method
+    Q_UNUSED(child);
     return QModelIndex();
 }
 
@@ -82,6 +83,7 @@ int SlideProxyModel::rowCount(const QModelIndex &parent) const
 
 int SlideProxyModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return 1;
 }
 

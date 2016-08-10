@@ -52,26 +52,26 @@ QVariant PresentationModel::data(const QModelIndex &index, int role) const
         {
             switch(role)
             {
-//            case Roles::X :
-//            {
-//                rData = QString::number(element->x());
-//                break;
-//            }
-//            case Roles::Y :
-//            {
-//                rData = QString::number(element->y());
-//                break;
-//            }
-//            case Roles::Width :
-//            {
-//                rData = QString::number(element->width());
-//                break;
-//            }
-//            case Roles::Height :
-//            {
-//                rData = QString::number(element->height());
-//                break;
-//            }
+            //            case Roles::X :
+            //            {
+            //                rData = QString::number(element->x());
+            //                break;
+            //            }
+            //            case Roles::Y :
+            //            {
+            //                rData = QString::number(element->y());
+            //                break;
+            //            }
+            //            case Roles::Width :
+            //            {
+            //                rData = QString::number(element->width());
+            //                break;
+            //            }
+            //            case Roles::Height :
+            //            {
+            //                rData = QString::number(element->height());
+            //                break;
+            //            }
             case Roles::Html :
             {
                 rData = slide->toHtml();
@@ -85,6 +85,8 @@ QVariant PresentationModel::data(const QModelIndex &index, int role) const
 
 QVariant PresentationModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
+    Q_UNUSED(section);
+    Q_UNUSED(role);
     QVariant rHeaderData;
     if(orientation == Qt::Horizontal)
     {
@@ -121,6 +123,7 @@ QModelIndex PresentationModel::index(int row, int column, const QModelIndex &par
 QModelIndex PresentationModel::parent(const QModelIndex &index) const
 {
     // TODO: Implement this method.
+    Q_UNUSED(index);
     return QModelIndex();
 }
 
