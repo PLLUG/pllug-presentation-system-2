@@ -17,3 +17,5 @@ QML_IMPORT_PATH =
 # Default rules for deployment.
 include(deployment.pri)
 include($$PWD/vendor/vendor.pri)
+
+HEADERS +=
