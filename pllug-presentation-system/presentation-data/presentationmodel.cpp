@@ -52,26 +52,30 @@ QVariant PresentationModel::data(const QModelIndex &index, int role) const
         {
             switch(role)
             {
-            // TODO: Implement actions in these cases.
-            //            case Roles::X :
-            //            {
-            //                return QString::number(element->x());
-            //            }
-            //            case Roles::Y :
-            //            {
-            //                return QString::number(element->y());
-            //            }
-            //            case Roles::Width :
-            //            {
-            //                return QString::number(element->width());
-            //            }
-            //            case Roles::Height :
-            //            {
-            //                return QString::number(element->height());
-            //            }
+//            case Roles::X :
+//            {
+//                rData = QString::number(element->x());
+//                break;
+//            }
+//            case Roles::Y :
+//            {
+//                rData = QString::number(element->y());
+//                break;
+//            }
+//            case Roles::Width :
+//            {
+//                rData = QString::number(element->width());
+//                break;
+//            }
+//            case Roles::Height :
+//            {
+//                rData = QString::number(element->height());
+//                break;
+//            }
             case Roles::Html :
             {
                 rData = slide->toHtml();
+                break;
             }
             }
         }

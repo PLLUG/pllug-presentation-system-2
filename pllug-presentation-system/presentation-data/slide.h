@@ -2,7 +2,6 @@
 #define SLIDE_H
 
 #include <memory>
-
 #include <QVector>
 
 #include "presentationelement.h"

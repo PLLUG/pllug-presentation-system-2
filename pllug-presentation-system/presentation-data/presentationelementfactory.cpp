@@ -20,16 +20,13 @@ std::unique_ptr<PresentationElement> PresentationElementFactory::create(const QS
         {
             rElement.reset(new Paragraph(html));
         }
-        else if(tag[0] == 'h')
+        else if(tag == "hr")
         {
-            if(tag[1] == 'r')
-            {
-                rElement.reset(new Separator(html));
-            }
-            else
-            {
-                rElement.reset(new Header(html));
-            }
+            rElement.reset(new Separator(html));
+        }
+        else
+        {
+            rElement.reset(new Header(html));
         }
     }
     return rElement;
