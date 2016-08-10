@@ -2,13 +2,11 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 
 ColumnLayout {
-    width: parent.width
-    height: parent.height
+    anchors.fill: parent
     Layout.fillHeight: false
 
     ListView {
-        width: parent.width
-        height: parent.height
+        anchors.fill: parent
 
         model: slideModel
 

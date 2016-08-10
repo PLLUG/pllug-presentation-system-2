@@ -30,26 +30,26 @@ int SlideProxyModel::slideCount() const
 
 QModelIndex SlideProxyModel::index(int row, int column, const QModelIndex &parent) const
 {
+    QModelIndex rIndex;
     if (parent.column() > 0)
-        return QModelIndex();
+        return rIndex;
 
     if(parent.isValid())
     {
         Slide *slide = static_cast<Slide *>(parent.internalPointer());
         if(slide)
         {
-            return createIndex(row, column, slide->element(row));
+            rIndex = createIndex(row, column, slide->element(row));
         }
-        else
-        {
-            return QModelIndex();
-        }
+
     }
     else
     {
         Slide *slide = static_cast<Slide *>(sourceModel()->index(mSlideNumber, 0).internalPointer());
-        return createIndex(row, column, slide->element(row));
+        rIndex = createIndex(row, column, slide->element(row));
     }
+
+    return rIndex;
 }
 
 QModelIndex SlideProxyModel::parent(const QModelIndex &child) const
@@ -61,24 +61,24 @@ QModelIndex SlideProxyModel::parent(const QModelIndex &child) const
 
 int SlideProxyModel::rowCount(const QModelIndex &parent) const
 {
-    int count = 0;
+    int rCount = 0;
     if(parent.isValid())
     {
         Slide* slide = static_cast<Slide *>(parent.internalPointer());
         if(slide)
         {
-            count = slide->elementsCount();
+            rCount = slide->elementsCount();
         }
         else
         {
-            count = sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
+            rCount = sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
         }
     }
     else
     {
-        count = sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
+        rCount = sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
     }
-    return count;
+    return rCount;
 }
 
 int SlideProxyModel::columnCount(const QModelIndex &parent) const

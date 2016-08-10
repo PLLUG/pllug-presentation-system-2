@@ -116,7 +116,7 @@ QList<Slide *>  DomDocumentDivider::divideSlide(Slide *slide, int elementsNum) c
 {
     // TODO: Nothing done here yet, as we don't know how to divide a single slide
     Q_UNUSED(elementsNum);
-    QList<Slide *> smallerSlides;
-    smallerSlides.push_back(slide);
-    return smallerSlides;
+    QList<Slide *> rSmallerSlides;
+    rSmallerSlides.push_back(slide);
+    return rSmallerSlides;
 }
