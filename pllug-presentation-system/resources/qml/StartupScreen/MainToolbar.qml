@@ -13,7 +13,6 @@ ToolBar {
             anchors.left: parent.left
             anchors.margins: 10
 
-
             FAText{
                 font.pixelSize: 20
                 text: icons.ellipsis_v

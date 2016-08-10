@@ -3,7 +3,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
 import "./TestScreen"
-import "./qml files"
+import "./StartupScreen"
 
 ApplicationWindow {
     id: window
@@ -12,7 +12,10 @@ ApplicationWindow {
     visible: true
     title: "PLLUG Presentation System 2.0"
 
-    StartupScreen {}
+    RecentProject {
+        id: gridMenu
+        anchors.fill: parent
+    }
 
     header: MainToolbar { }
 }

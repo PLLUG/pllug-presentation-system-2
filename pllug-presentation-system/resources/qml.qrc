@@ -6,10 +6,9 @@
         <file alias="Page1.qml">qml/TestScreen/Page1.qml</file>
         <file alias="Page1Form.ui.qml">qml/TestScreen/Page1Form.ui.qml</file>
     </qresource>
-    <qresource prefix="/qml files">
-        <file alias="GridMenu.qml">qml/qml files/GridMenu.qml</file>
-        <file alias="RecentDelegateModel.qml">qml/qml files/RecentDelegateModel.qml</file>
-        <file alias="MainToolbar.qml">qml/qml files/MainToolbar.qml</file>
-        <file alias="StartupScreen.qml">qml/qml files/StartupScreen.qml</file>
+    <qresource prefix="/StartupScreen">
+        <file alias="MainToolbar.qml">qml/StartupScreen/MainToolbar.qml</file>
+        <file alias="RecentDelegateModel.qml">qml/StartupScreen/RecentDelegateModel.qml</file>
+        <file alias="RecentProject.qml">qml/StartupScreen/RecentProject.qml</file>
     </qresource>
 </RCC>
