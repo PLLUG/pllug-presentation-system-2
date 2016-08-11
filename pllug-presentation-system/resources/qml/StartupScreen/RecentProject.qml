@@ -1,7 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.0
 
-
 Flickable {
     id: flickable
     contentHeight: gridRectangle.height
@@ -24,6 +23,8 @@ Flickable {
             delegate: RecentDelegateModel {
                 width: GridView.view.cellWidth
                 height: GridView.view.cellHeight
+                modelNameText: name
+                modelPathSource: path
             }
         }
     }

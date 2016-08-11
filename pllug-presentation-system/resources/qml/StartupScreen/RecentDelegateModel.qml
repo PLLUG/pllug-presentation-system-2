@@ -2,6 +2,8 @@ import QtQuick 2.0
 
 Item {
     id: container
+    property alias modelNameText: presentationNameText.text
+    property alias modelPathSource: presentationImage.source
 
     Rectangle {
         id: recentDelegeteRectangle
@@ -25,7 +27,6 @@ Item {
                 anchors.fill:parent
                 anchors.topMargin: 10
                 anchors.bottomMargin: 10
-                text: modelName
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
@@ -40,7 +41,6 @@ Item {
             Image {
                 id: presentationImage
                 anchors.fill: parent
-                source: modelPath
             }
         }
     }
