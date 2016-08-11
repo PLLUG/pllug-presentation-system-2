@@ -54,3 +54,8 @@ void Slide::addElement(std::unique_ptr<PresentationElement> element)
 {
     mElementsList.append(element.release());
 }
+
+PresentationElement *Slide::element(int index) const
+{
+    return mElementsList[index];
+}
