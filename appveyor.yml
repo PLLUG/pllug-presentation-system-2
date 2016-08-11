@@ -46,6 +46,10 @@ build_script:
 artifacts:
   - path: setup\setup.exe 
     name: setup
+    
+branches:
+  only:
+    -feature-24-Deployment-script
 
 deploy:
 - provider: GitHub
@@ -55,6 +59,7 @@ deploy:
   draft: false
   prerelease: false
   description: ''
-  on:                
+  on:
+    branch: master  
     appveyor_repo_tag: true
 
