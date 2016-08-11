@@ -3,7 +3,7 @@
     <Name>PLLUG Presentation System 2</Name>
     <Version>1.0.0</Version>
     <Title>PPS2 Installer</Title>
-    <Publisher>Your vendor</Publisher>
+    <Publisher>PLLUG Community</Publisher>
     <StartMenuDir>PPS2</StartMenuDir>
     <TargetDir>@ApplicationsDir@/PLLUG/PPS2</TargetDir>
 </Installer>

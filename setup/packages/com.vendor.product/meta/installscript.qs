@@ -33,11 +33,8 @@
 
 function Component()
 {
-    // constructor
     component.loaded.connect(this, Component.prototype.installerLoaded);
 	installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
-   // if (!installer.addWizardPage(component, "Page", QInstaller.TargetDirectory))
-    //    console.log("Could not add the dynamic page.");
 }
 
 
@@ -45,7 +42,7 @@ function Component()
 Component.prototype.createOperations = function()
 {
     try {
-        // call the base create operations function
+	
         component.createOperations();
 		component.addElevatedOperation("Execute", "@TargetDir@/release/vcredist_x64.exe", "/quiet", "/norestart")
 		component.addElevatedOperation("CreateShortcut", "@TargetDir@/release/pllug-presentation-system.exe", "PPS2.lnk")
@@ -57,7 +54,6 @@ Component.prototype.createOperations = function()
 Component.prototype.installerLoaded = function () {}
 Component.prototype.isDefault = function()
 {
-    // select the component by default
     return true;
 }
 
