@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     PresentationModel data;
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("slideModel", &data);
+    engine.rootContext()->setContextProperty("recentModel", &data);
     engine.addImportPath(QStringLiteral("qrc:/"));
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

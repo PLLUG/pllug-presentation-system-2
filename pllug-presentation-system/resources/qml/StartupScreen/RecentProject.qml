@@ -13,13 +13,13 @@ Flickable {
         anchors.bottomMargin: 40
 
         GridView {
-            id: gridView
+            id: recentModelGridView
             anchors.fill: parent;
             anchors.leftMargin: 10
             anchors.rightMargin: 5
             cellWidth: 220
             cellHeight: 220
-            model: recentPresentationsModel
+            model: recentModel
 
             delegate: RecentDelegateModel {
                 width: GridView.view.cellWidth
@@ -30,37 +30,4 @@ Flickable {
 
     ScrollBar.vertical: ScrollBar { }
 
-    // You should remove this ListModel when our model will be available
-    ListModel {
-        id: recentPresentationsModel
-
-        ListElement {
-            presentationName: "Presentation name1"
-            imageSrc: ""
-        }
-        ListElement {
-            presentationName: "Presentation name1"
-            imageSrc: ""
-        }
-        ListElement {
-            presentationName: "Presentation name1"
-            imageSrc: ""
-        }
-        ListElement {
-            presentationName: "Presentation name1"
-            imageSrc: ""
-        }
-        ListElement {
-            presentationName: "Presentation name1"
-            imageSrc: ""
-        }
-        ListElement {
-            presentationName: "Presentation name1"
-            imageSrc: ""
-        }
-        ListElement {
-            presentationName: "Presentation name1"
-            imageSrc: ""
-        }
-    }
 }

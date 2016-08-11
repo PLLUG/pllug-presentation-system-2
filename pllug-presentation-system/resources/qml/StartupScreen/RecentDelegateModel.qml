@@ -25,8 +25,7 @@ Item {
                 anchors.fill:parent
                 anchors.topMargin: 10
                 anchors.bottomMargin: 10
-
-                text: presentationName
+                text: modelName
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
@@ -41,7 +40,7 @@ Item {
             Image {
                 id: presentationImage
                 anchors.fill: parent
-                source: imageSrc
+                source: modelPath
             }
         }
     }

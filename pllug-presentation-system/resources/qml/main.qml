@@ -17,5 +17,6 @@ ApplicationWindow {
         anchors.fill: parent
     }
 
+
     header: MainToolbar { }
 }
