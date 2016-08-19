@@ -4,6 +4,7 @@ CONFIG += c++14
 
 CONFIG += silent
 
+
 include(presentation-data/presentation-data.pri)
 
 SOURCES += main.cpp
