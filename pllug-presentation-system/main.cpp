@@ -11,21 +11,26 @@
 #include "presentationelementfactory.h"
 #include "presentationmodel.h"
 #include "slideproxymodel.h"
+#include "mdpresentationimport.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
-    QFile htmlFile("D:/Qt_projects/SUMMERCAMP2016/pps2/pllug-presentation-system-2/tests/auto/resources/multiple_slides.html");
-    htmlFile.open(QFile::ReadOnly);
-    QByteArray input = htmlFile.readAll();
-    htmlFile.close();
-    std::shared_ptr<PresentationElementFactory> factoryPtr(new PresentationElementFactory());
-    HtmlImport importObject(factoryPtr);
-    QList<PresentationElement *> elements = importObject.import(input);
-    DomDocumentDivider divider;
-    std::unique_ptr<Presentation> presentation = divider.import(elements);
+    //****************
+    MdPresentationImport imp;
+    std::unique_ptr<Presentation>  presentation = imp.import("C:/Users/JuliaKushniruk/Desktop/summercamp/two_headers.md");
+
+    //    QFile htmlFile("D:/Qt_projects/SUMMERCAMP2016/pps2/pllug-presentation-system-2/tests/auto/resources/multiple_slides.html");
+    //    htmlFile.open(QFile::ReadOnly);
+    //    QByteArray input = htmlFile.readAll();
+    //    htmlFile.close();
+    //    std::shared_ptr<PresentationElementFactory> factoryPtr(new PresentationElementFactory());
+    //    HtmlImport importObject(factoryPtr);
+    //    QList<PresentationElement *> elements = importObject.import(input);
+    //    DomDocumentDivider divider;
+    //    std::unique_ptr<Presentation> presentation = divider.import(elements);
 
     PresentationModel presentationModel;
     presentationModel.setPresentation(presentation.release());
