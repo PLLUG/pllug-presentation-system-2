@@ -7,11 +7,13 @@ pull_requests:
   do_not_increment_build_number: true
 environment:
   QT_INSTALL_ROOT: C:\Qt\5.7\msvc2015_64
+  QT_IFW_ROOT: C:\Qt\QtIFW2.0.1
+
 build_script:
 - cmd: >-
     %QT_INSTALL_ROOT%\bin\qtenv2.bat
 
-    "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+    "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64  
 
     cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
 
@@ -22,6 +24,8 @@ build_script:
     qmake CONFIG+=release
 
     nmake
+    
+    %QT_INSTALL_ROOT%\bin\windeployqt --qmldir %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\resources %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\release 
 
     cd %APPVEYOR_BUILD_FOLDER%\tests
 
@@ -30,3 +34,34 @@ build_script:
     nmake
 
     nmake tests
+    
+    cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system 
+     
+    7z a release.7z release\     
+
+    cd  %APPVEYOR_BUILD_FOLDER%\setup\packages\com.vendor.product
+
+    mkdir data    
+
+    move %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system\release.7z %APPVEYOR_BUILD_FOLDER%\setup\packages\com.vendor.product\data
+    
+    cd %APPVEYOR_BUILD_FOLDER%\setup
+       
+    %QT_IFW_ROOT%\bin\binarycreator.exe -c config\config.xml -p packages setup.exe
+           
+artifacts:
+  - path: setup\setup.exe 
+    name: setup
+    
+
+deploy:
+- provider: GitHub
+  artifact: setup
+  auth_token:
+    secure: NOVV+lEGGXaX9+iGzZfR3P5SJdty4aO6gRVCDwFSVd9o21pHvJFGRzVaUw2zqLa7 
+  draft: false
+  prerelease: false
+  description: ''
+  on: 
+    appveyor_repo_tag: true
+
