@@ -3,9 +3,13 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import com.cutehacks.fontawesome 1.0
 import QtGraphicalEffects 1.0
+import QtQuick.Dialogs 1.0
 
 
 ToolBar {
+    id: toolBar
+
+    signal selectedFile
 
     RowLayout {
         id: rowLayout
@@ -24,7 +28,7 @@ ToolBar {
             toolTipText: "Switch to preview"
             anchors {
                 left: optionsMenuToolButton.right
-                leftMargin: 30     
+                leftMargin: 30
             }
             MyGlow {
                 id: importButton
@@ -34,6 +38,11 @@ ToolBar {
                     left: sideBarToolButton.right
                     leftMargin: 40
                 }
+                onClicked: {
+                    fileDialog.open()
+                    console.log("Clicked")
+                }
+
             }
             MyGlow {
                 id: quitButton
@@ -45,6 +54,26 @@ ToolBar {
                 }
             }
 
+        }
+
+    }
+
+    FileDialog {
+        id: fileDialog
+
+        title: "Please choose a file"
+        folder: shortcuts.desktop
+        nameFilters: [ "Markdown files (*.md)", "All files (*)" ]
+
+        Component.onCompleted: {
+            accepted.connect(toolBar.selectedFile)
+        }
+
+        onAccepted: {
+            console.log("You chose: " + fileDialog.fileUrls)
+        }
+        onRejected: {
+            console.log("Canceled")
         }
 
     }

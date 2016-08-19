@@ -85,7 +85,6 @@ Drawer {
                 onClicked: {
                     slideModel.setSlideNumber(index)
                     drawer.currentSlideChanged()
-
                 }
 
                 anchors.fill: parent

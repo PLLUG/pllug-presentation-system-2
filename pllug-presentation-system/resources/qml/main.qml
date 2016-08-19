@@ -5,7 +5,6 @@ import "./View"
 import QtQuick.Layouts 1.0
 import QtQuick.Controls.Styles 1.4
 
-import "./TestScreen"
 import "./StartupScreen"
 
 ApplicationWindow {
@@ -16,22 +15,20 @@ ApplicationWindow {
 
     visible: true
 
-
     MainWindow{
         id: mainWindow
-
-        //<<<<<<< HEAD
-        //        anchors.fill: parent
-        //    }
-        //=======
-
-        RecentProject {
-            id:gridMenu
-            anchors.fill: parent
-
-        }
-        header: MainToolbar { }
-
-        //>>>>>>> development
+        anchors.fill: parent
+        visible: false
     }
+
+    RecentProject {
+        id:gridMenu
+        anchors.fill: parent
+    }
+
+    header: MainToolbar {
+        onSelectedFile: {
+            gridMenu.visible = false
+            mainWindow.visible = true
+    } }
 }
