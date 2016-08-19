@@ -9,4 +9,11 @@
         <file alias="ToolBarPPS.qml">qml/View/ToolBarPPS.qml</file>
         <file alias="SideBar.qml">qml/View/SideBar.qml</file>
     </qresource>
+    <qresource prefix="/StartupScreen">
+        <file alias="MainToolbar.qml">qml/StartupScreen/MainToolbar.qml</file>
+        <file alias="RecentDelegateModel.qml">qml/StartupScreen/RecentDelegateModel.qml</file>
+        <file alias="RecentProject.qml">qml/StartupScreen/RecentProject.qml</file>
+        <file alias="RecentDelegateContextMenu.qml">qml/StartupScreen/RecentDelegateContextMenu.qml</file>
+        <file alias="MyGlow.qml">qml/StartupScreen/MyGlow.qml</file>
+    </qresource>
 </RCC>
