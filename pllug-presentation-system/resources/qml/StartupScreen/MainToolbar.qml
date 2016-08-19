@@ -2,36 +2,51 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import com.cutehacks.fontawesome 1.0
+import QtGraphicalEffects 1.0
+
 
 ToolBar {
 
     RowLayout {
+        id: rowLayout
         anchors.fill: parent
 
-        ToolButton {
+        MyGlow {
             id: optionsMenuToolButton
+            toolButtonIcon: icons.ellipsis_v
             anchors.left: parent.left
-            anchors.margins: 10
+            toolTipText: "Options"
 
-            FAText{
-                font.pixelSize: 20
-                text: icons.ellipsis_v
-                anchors.centerIn: parent
-            }
         }
-
-        ToolButton {
+        MyGlow {
             id: sideBarToolButton
-            anchors.left: optionsMenuToolButton.right
-            anchors.margins: 10
-
-
-            FAText{
-                font.pixelSize: 20
-                text: icons.bars
-                anchors.centerIn: parent
+            toolButtonIcon: icons.bars
+            toolTipText: "Switch to preview"
+            anchors {
+                left: optionsMenuToolButton.right
+                leftMargin: 30     
             }
+            MyGlow {
+                id: importButton
+                toolButtonIcon: icons.arrow_circle_right
+                toolTipText: "Import presentation"
+                anchors {
+                    left: sideBarToolButton.right
+                    leftMargin: 40
+                }
+            }
+            MyGlow {
+                id: quitButton
+                toolButtonIcon: icons.times
+                toolTipText: "Quit"
+                anchors {
+                    left: importButton.right
+                    leftMargin: 40
+                }
+            }
+
         }
+
     }
 }
 

@@ -1,5 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.0
+import com.cutehacks.fontawesome 1.0
 
 Flickable {
     id: flickable
@@ -11,6 +12,7 @@ Flickable {
         height: flickable.height * 1.25
         anchors.bottomMargin: 40
 
+
         GridView {
             id: gridView
             anchors.fill: parent;
@@ -20,11 +22,17 @@ Flickable {
             cellHeight: 220
             model: recentPresentationsModel
 
+
             delegate: RecentDelegateModel {
                 width: GridView.view.cellWidth
                 height: GridView.view.cellHeight
             }
+
+
         }
+
+
+
     }
 
     ScrollBar.vertical: ScrollBar { }
@@ -62,4 +70,6 @@ Flickable {
             imageSrc: ""
         }
     }
+
 }
+

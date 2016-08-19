@@ -10,5 +10,7 @@
         <file alias="MainToolbar.qml">qml/StartupScreen/MainToolbar.qml</file>
         <file alias="RecentDelegateModel.qml">qml/StartupScreen/RecentDelegateModel.qml</file>
         <file alias="RecentProject.qml">qml/StartupScreen/RecentProject.qml</file>
+        <file alias="RecentDelegateContextMenu.qml">qml/StartupScreen/RecentDelegateContextMenu.qml</file>
+        <file alias="MyGlow.qml">qml/StartupScreen/MyGlow.qml</file>
     </qresource>
 </RCC>
