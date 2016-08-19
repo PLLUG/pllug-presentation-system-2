@@ -2,6 +2,8 @@
 #include <QDebug>
 #include <QtGlobal>
 #include "separator.h"
+#include "presentationelementfactory.h"
+
 /*!
  * \brief Public constructor.
  */
@@ -23,7 +25,7 @@ Slide::~Slide()
  */
 Slide::Slide(const Slide &other)
 {
-    Q_UNUSED(other)
+    *this = other;
 }
 
 /*!
@@ -31,8 +33,12 @@ Slide::Slide(const Slide &other)
  */
 Slide &Slide::operator=(const Slide &other)
 {
-    Q_UNUSED(other)
-
+    qDeleteAll(mElementsList);
+    PresentationElementFactory factory;
+    for(auto elem: other.mElementsList)
+    {
+        mElementsList.append(factory.create(elem->toHtml()).release());
+    }
     return  *this;
 }
 
@@ -57,15 +63,17 @@ void Slide::addElement(std::unique_ptr<PresentationElement> element)
 
 PresentationElement *Slide::element(int index) const
 {
+    PresentationElement *rElement {};
     if(index >= 0 && index < mElementsList.count())
     {
-        return mElementsList[index];
+        rElement = mElementsList[index];
     }
     else
     {
         qWarning() << "Warning: Invalid slide element index.";
-        return new Separator("<br />");
+        rElement = new Separator("<hr />");
     }
+    return rElement;
 }
 
 QString Slide::toHtml() const

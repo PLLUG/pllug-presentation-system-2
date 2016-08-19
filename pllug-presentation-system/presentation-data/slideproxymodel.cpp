@@ -17,8 +17,9 @@ void SlideProxyModel::setSlideNumber(int slideNumber)
 {
     if(slideNumber >= 0 && slideNumber < sourceModel()->rowCount())
     {
+        beginResetModel();
         mSlideNumber = slideNumber;
-        dataChangedHandler();
+        endResetModel();
     }
 }
 
@@ -29,71 +30,86 @@ int SlideProxyModel::slideCount() const
 
 QModelIndex SlideProxyModel::index(int row, int column, const QModelIndex &parent) const
 {
+    QModelIndex rIndex;
     if (parent.column() > 0)
-        return QModelIndex();
+        return rIndex;
 
     if(parent.isValid())
     {
         Slide *slide = static_cast<Slide *>(parent.internalPointer());
         if(slide)
         {
-            return createIndex(row, column, slide->element(row));
+            rIndex = createIndex(row, column, slide->element(row));
         }
-        else
-        {
-            return QModelIndex();
-        }
+
     }
     else
     {
         Slide *slide = static_cast<Slide *>(sourceModel()->index(mSlideNumber, 0).internalPointer());
-        return createIndex(row, column, slide->element(row));
+        rIndex = createIndex(row, column, slide->element(row));
     }
+
+    return rIndex;
 }
 
 QModelIndex SlideProxyModel::parent(const QModelIndex &child) const
 {
     // TODO: Implement this method
+    Q_UNUSED(child);
     return QModelIndex();
 }
 
 int SlideProxyModel::rowCount(const QModelIndex &parent) const
 {
+    int rCount = 0;
     if(parent.isValid())
     {
         Slide* slide = static_cast<Slide *>(parent.internalPointer());
         if(slide)
         {
-            return slide->elementsCount();
+            rCount = slide->elementsCount();
         }
         else
         {
-            return sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
+            rCount = sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
         }
     }
     else
     {
-        return sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
+        rCount = sourceModel()->rowCount(sourceModel()->index(mSlideNumber, 0));
     }
+    return rCount;
 }
 
 int SlideProxyModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return 1;
 }
 
 QModelIndex SlideProxyModel::mapFromSource(const QModelIndex &sourceIndex) const
 {
-    return index(sourceIndex.row(),sourceIndex.column());
+    QModelIndex rIndex;
+    if(sourceIndex.isValid())
+    {
+        rIndex = index(sourceIndex.row(),sourceIndex.column());
+    }
+    return rIndex;
 }
 
 QModelIndex SlideProxyModel::mapToSource(const QModelIndex &proxyIndex) const
 {
-    return sourceModel()->index(proxyIndex.row(),proxyIndex.column());
+    QModelIndex rIndex;
+    if(proxyIndex.isValid())
+    {
+        rIndex = sourceModel()->index(proxyIndex.row(),proxyIndex.column());
+    }
+    return rIndex;
 }
 
 QVariant SlideProxyModel::data(const QModelIndex &proxyIndex, int role) const
 {
+    QVariant rData;
     if(proxyIndex.isValid())
     {
         PresentationElement *element = static_cast<PresentationElement *>(proxyIndex.internalPointer());
@@ -103,39 +119,33 @@ QVariant SlideProxyModel::data(const QModelIndex &proxyIndex, int role) const
             {
             case PresentationModel::Roles::X :
             {
-                return QString::number(element->x());
+                rData = QString::number(element->x());
+                break;
             }
             case PresentationModel::Roles::Y :
             {
-                return QString::number(element->y());
+                rData = QString::number(element->y());
+                break;
             }
             case PresentationModel::Roles::Width :
             {
-                return QString::number(element->width());
+                rData = QString::number(element->width());
+                break;
             }
             case PresentationModel::Roles::Height :
             {
-                return QString::number(element->height());
+                rData = QString::number(element->height());
+                break;
             }
             case PresentationModel::Roles::Html :
             {
-                return element->toHtml();
-            }
-            default:
-            {
-                return QVariant();
+                rData = element->toHtml();
+                break;
             }
             }
         }
-        else
-        {
-            return QVariant();
-        }
     }
-    else
-    {
-        return QVariant();
-    }
+    return rData;
 }
 
 QHash<int, QByteArray> SlideProxyModel::roleNames() const
@@ -151,37 +161,20 @@ QHash<int, QByteArray> SlideProxyModel::roleNames() const
 
 void SlideProxyModel::firstSlide()
 {
-    mSlideNumber = 0;
-    dataChangedHandler();
+    setSlideNumber(0);
 }
 
 void SlideProxyModel::lastSlide()
 {
-    mSlideNumber = sourceModel()->rowCount() - 1;
-    dataChangedHandler();
+    setSlideNumber(sourceModel()->rowCount() - 1);
 }
 
 void SlideProxyModel::previousSlide()
 {
-    if(mSlideNumber)
-    {
-        --mSlideNumber;
-       dataChangedHandler();
-    }
+    setSlideNumber(slideNumber() - 1);
 }
 
 void SlideProxyModel::nextSlide()
 {
-    if(mSlideNumber != (sourceModel()->rowCount() - 1))
-    {
-        ++mSlideNumber;
-        dataChangedHandler();
-    }
-}
-
-void SlideProxyModel::dataChangedHandler()
-{
-    QModelIndex topleft = sourceModel()->index(0,0);
-    QModelIndex bottomRight = sourceModel()->index(sourceModel()->rowCount() - 1, 0);
-    dataChanged(topleft, bottomRight);
+    setSlideNumber(slideNumber() + 1);
 }

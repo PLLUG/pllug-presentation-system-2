@@ -2,7 +2,6 @@
 #define SLIDE_H
 
 #include <memory>
-
 #include <QVector>
 
 #include "presentationelement.h"
@@ -28,6 +27,7 @@ public:
     PresentationElement* element(int index) const;
 
     QString toHtml() const;
+
 private:
     QVector<PresentationElement *> mElementsList;
 };

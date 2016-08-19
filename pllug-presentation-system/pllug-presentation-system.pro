@@ -18,3 +18,6 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 include($$PWD/vendor/vendor.pri)
 
+# Pandoc-slave
+include($$PWD/../pandoc-slave/pandoc-slave/pandoc-slave/pandoc-slave.pri)
+

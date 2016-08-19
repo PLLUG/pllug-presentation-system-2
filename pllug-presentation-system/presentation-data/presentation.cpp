@@ -62,14 +62,16 @@ void Presentation::appendSlide(std::unique_ptr<Slide> slide)
 
 Slide *Presentation::slide(int index) const
 {
+    Slide *rSlide {};
     if(index >= 0 && index < mSlideList.count())
     {
-        return mSlideList[index];
+        rSlide = mSlideList[index];
     }
     else
     {
         qWarning() << "Warning: Invalid slide index.";
-        return new Slide();
+        rSlide = new Slide();
     }
+    return rSlide;
 }
 
