@@ -62,7 +62,7 @@ void Presentation::appendSlide(std::unique_ptr<Slide> slide)
 
 Slide *Presentation::slide(int index) const
 {
-    Slide *rSlide;
+    Slide *rSlide {};
     if(index >= 0 && index < mSlideList.count())
     {
         rSlide = mSlideList[index];

@@ -63,7 +63,7 @@ void Slide::addElement(std::unique_ptr<PresentationElement> element)
 
 PresentationElement *Slide::element(int index) const
 {
-    PresentationElement *rElement;
+    PresentationElement *rElement {};
     if(index >= 0 && index < mElementsList.count())
     {
         rElement = mElementsList[index];
