@@ -1,44 +1,21 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
-import com.cutehacks.fontawesome 1.0
 
 import "./TestScreen"
-
+import "./StartupScreen"
 
 ApplicationWindow {
-    visible: true
-    width: 640
+    id: window
+    width: 700
     height: 480
-    title: qsTr("Hello World")
+    visible: true
+    title: "PLLUG Presentation System 2.0"
 
-
-    SwipeView {
-        id: swipeView
+    RecentProject {
+        id: gridMenu
         anchors.fill: parent
-        currentIndex: tabBar.currentIndex
-
-        Page1 {
-        }
-
-        Page {
-            FAText {
-                    text: icons.ambulance
-                    anchors.centerIn: parent
-                    font.pixelSize: 72
-                    color: "steelblue"
-                }
-        }
     }
 
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-        TabButton {
-            text: qsTr("First")
-        }
-        TabButton {
-            text: qsTr("Second")
-        }
-    }
+    header: MainToolbar { }
 }
