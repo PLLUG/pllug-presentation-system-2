@@ -19,3 +19,6 @@ include(deployment.pri)
 include($$PWD/vendor/vendor.pri)
 
 HEADERS +=
+
+DISTFILES += \
+    recentPresentation.json

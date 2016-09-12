@@ -9,7 +9,6 @@
  */
 Presentation::Presentation()
 {
-
 }
 
 /*!

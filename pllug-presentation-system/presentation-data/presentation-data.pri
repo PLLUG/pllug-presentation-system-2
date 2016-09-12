@@ -11,7 +11,9 @@ SOURCES += \
     $$PWD/htmlimport.cpp \
     $$PWD/presentationelementfactory.cpp \
     $$PWD/presentationmodel.cpp \
-    $$PWD/presentationmodelloader.cpp
+    $$PWD/presentationmodelloader.cpp \
+    $$PWD/presentationmodelloader.cpp \
+    $$PWD/presentationmodelfields.cpp
 
 HEADERS += \
     $$PWD/presentation.h \
@@ -28,6 +30,8 @@ HEADERS += \
     $$PWD/abstractpresentationelementfactory.h \
     $$PWD/presentationelementfactory.h \
     $$PWD/presentationmodel.h \
-    $$PWD/presentationmodelloader.h
+    $$PWD/presentationmodelloader.h \
+    $$PWD/presentationmodelloader.h \
+    $$PWD/presentationmodelfields.h
 
 INCLUDEPATH += $$PWD

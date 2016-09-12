@@ -1,0 +1,10 @@
+{
+    "presentations": [
+        {
+            "path": "some/path/to/presentation.html"
+        },
+        {
+            "path": "some/path/to/presentationNumberTwo.html"
+        }
+    ]
+}

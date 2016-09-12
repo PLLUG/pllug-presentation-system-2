@@ -1,29 +1,37 @@
-#ifndef PRESENTATIONMODELLOADER_H
-#define PRESENTATIONMODELLOADER_H
+#ifndef PRESENTATIONLOADER_H
+#define PRESENTATIONLOADER_H
 
 #include <QObject>
 #include <QStringList>
 
 class PresentationModel;
+class PresentationModelFields;
+class QJsonObject;
+
 class PresentationLoader : public QObject
 {
     Q_OBJECT
 
 public:
     explicit PresentationLoader(QObject *parent = nullptr);
+    ~PresentationLoader();
 
+    PresentationModel *presentationModel() const;
+    void setFileName(const QString &pathToFile);
+    void setPresentationModel(PresentationModel *presentationModel);
 
-       void setFileName(const QString &pathToFile);
+    QList <PresentationModelFields*> presentations() const;
+    void load();
+    QList <PresentationModelFields*> getList() const;
 
-       PresentationModel *presentationModel() const;
-       void setPresentationModel(PresentationModel *presentationModel);
+private:
 
- private:
-       void load();
+    PresentationModelFields *parsePresentation(const QJsonObject &obj);
 
-       PresentationModel* mPresentationModel;
-       QString mPath;
+    QString mPathToFile;
+    QList <PresentationModelFields*> mPresentationList;
+    PresentationModel* mPresentationModel;
 
 };
 
-#endif // PRESENTATIONMODELLOADER_H
+#endif // PRESENTATIONLOADER_H
