@@ -70,7 +70,7 @@ ToolBar {
         }
 
         onAccepted: {
-            console.log("You chose: " + fileDialog.fileUrls)
+            presentationController.importPresentation(fileDialog.fileUrl)
         }
         onRejected: {
             console.log("Canceled")

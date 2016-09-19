@@ -12,36 +12,22 @@
 #include "presentationmodel.h"
 #include "slideproxymodel.h"
 #include "mdpresentationimport.h"
+#include "presentationcontroller.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
-    //****************
-    MdPresentationImport imp;
-    std::unique_ptr<Presentation>  presentation = imp.import("C:/Users/JuliaKushniruk/Desktop/summercamp/two_headers.md");
-
-    //    QFile htmlFile("D:/Qt_projects/SUMMERCAMP2016/pps2/pllug-presentation-system-2/tests/auto/resources/multiple_slides.html");
-    //    htmlFile.open(QFile::ReadOnly);
-    //    QByteArray input = htmlFile.readAll();
-    //    htmlFile.close();
-    //    std::shared_ptr<PresentationElementFactory> factoryPtr(new PresentationElementFactory());
-    //    HtmlImport importObject(factoryPtr);
-    //    QList<PresentationElement *> elements = importObject.import(input);
-    //    DomDocumentDivider divider;
-    //    std::unique_ptr<Presentation> presentation = divider.import(elements);
-
-    PresentationModel presentationModel;
-    presentationModel.setPresentation(presentation.release());
+    PresentationController presentationController;
     SlideProxyModel slideModel;
-    slideModel.setSourceModel(&presentationModel);
-    slideModel.setSlideNumber(0);
+    slideModel.setSourceModel(presentationController.presentationModel());
 
     QQmlApplicationEngine engine;
-    engine.addImportPath(QStringLiteral("qrc:/"));
-    engine.rootContext()->setContextProperty("slideModel", &slideModel);
-    engine.rootContext()->setContextProperty("presentationModel", &presentationModel);
+    engine.addImportPath(QLatin1String("qrc:/"));
+    engine.rootContext()->setContextProperty(QLatin1String("presentationController"), &presentationController);
+    engine.rootContext()->setContextProperty(QLatin1String("presentationModel"), presentationController.presentationModel());
+    engine.rootContext()->setContextProperty(QLatin1String("slideModel"), &slideModel);
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
     return app.exec();

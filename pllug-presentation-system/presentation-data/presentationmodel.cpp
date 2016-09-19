@@ -137,3 +137,8 @@ QHash<int, QByteArray> PresentationModel::roleNames() const
     rHash.insert(Roles::Html, "Html");
     return rHash;
 }
+
+Presentation *PresentationModel::presentation() const
+{
+    return mPresentation;
+}

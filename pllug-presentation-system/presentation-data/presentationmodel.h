@@ -14,6 +14,7 @@ class PresentationModel : public QAbstractItemModel
 public:
     explicit PresentationModel(QObject *parent = nullptr);
 
+    Presentation *presentation() const;
     void setPresentation(Presentation *presentation);
 
     virtual int rowCount(const QModelIndex &parent) const override;
