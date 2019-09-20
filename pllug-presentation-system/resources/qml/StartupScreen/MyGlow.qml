@@ -4,14 +4,15 @@ import QtGraphicalEffects 1.0
 import com.cutehacks.fontawesome 1.0
 
 Item {
-
+    id: rootItem
     property alias toolButtonIcon: faText.text
     readonly property alias icons: faText.icons
     property alias toolTipText: toolTip.text
 
+    signal clicked
+
     ToolButton {
         id: toolButton
-
 
         FAText{
             id: faText
@@ -20,9 +21,6 @@ Item {
 
         }
 
-
-
-
         ToolTip {
             id: toolTip
             delay: 1000
@@ -30,15 +28,15 @@ Item {
             visible: false
         }
 
-
-
-
         MouseArea {
-
             id: mouseArea
+
             anchors.fill: parent
             hoverEnabled: true
 
+            Component.onCompleted: {
+                clicked.connect(rootItem.clicked)
+            }
             onEntered: {
                 glow.visible = true
                 toolTip.open()
@@ -50,7 +48,6 @@ Item {
         }
 
     }
-
 
     Glow {
         id: glow
@@ -64,6 +61,3 @@ Item {
         opacity: 0.5
     }
 }
-
-
-

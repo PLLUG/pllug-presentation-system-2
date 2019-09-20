@@ -3,7 +3,7 @@
 #include <utility>
 #include <algorithm>
 #include <QtGlobal>
-
+#include <QDebug>
 /*!
  * \brief Public constructor.
  */
@@ -62,6 +62,16 @@ void Presentation::appendSlide(std::unique_ptr<Slide> slide)
 
 Slide *Presentation::slide(int index) const
 {
-    return mSlideList[index];
+    Slide *rSlide {};
+    if(index >= 0 && index < mSlideList.count())
+    {
+        rSlide = mSlideList[index];
+    }
+    else
+    {
+        qWarning() << "Warning: Invalid slide index.";
+        rSlide = new Slide();
+    }
+    return rSlide;
 }
 

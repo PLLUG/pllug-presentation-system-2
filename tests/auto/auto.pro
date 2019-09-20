@@ -4,7 +4,8 @@ SUBDIRS += presentation \
     slide \
     domdocumentdivider \
     htmlimport \
-    importdivision
+    importdivision \
+    presentationmodel
 
 # Curtom make target for all running available tests
 tests.CONFIG = recursive

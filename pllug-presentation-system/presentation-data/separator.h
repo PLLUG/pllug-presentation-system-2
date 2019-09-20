@@ -3,6 +3,7 @@
 
 #include "presentationelement.h"
 class QString;
+
 class Separator : public PresentationElement
 {
 public:

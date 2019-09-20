@@ -2,9 +2,12 @@
     <qresource prefix="/">
         <file alias="main.qml">qml/main.qml</file>
     </qresource>
-    <qresource prefix="/TestScreen">
-        <file alias="Page1.qml">qml/TestScreen/Page1.qml</file>
-        <file alias="Page1Form.ui.qml">qml/TestScreen/Page1Form.ui.qml</file>
+    <qresource prefix="/View">
+        <file alias="SlideView.qml">qml/View/SlideView.qml</file>
+        <file alias="MainWindow.qml">qml/View/MainWindow.qml</file>
+        <file alias="PageIndicator.qml">qml/View/PageIndicator.qml</file>
+        <file alias="ToolBarPPS.qml">qml/View/ToolBarPPS.qml</file>
+        <file alias="SideBar.qml">qml/View/SideBar.qml</file>
     </qresource>
     <qresource prefix="/StartupScreen">
         <file alias="MainToolbar.qml">qml/StartupScreen/MainToolbar.qml</file>

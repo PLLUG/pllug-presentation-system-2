@@ -1,25 +1,33 @@
-import QtQuick 2.7
-import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
+import QtQuick.Controls 1.4
+import QtQuick.Controls 2.0
 import QtQuick.Controls.Styles 1.4
 
-import "./TestScreen"
+import "./View"
 import "./StartupScreen"
 
 ApplicationWindow {
     id: window
-    width: 700
-    height: 480
+    width: 800
+    height: 600
     visible: true
-    title: "PLLUG Presentation System 2.0"
+    title: qsTr("PLLUG Presentation System 2.0")
 
-
+    MainWindow {
+        id: mainWindow
+        anchors.fill: parent
+        visible: false
+    }
 
     RecentProject {
-        id:gridMenu
+        id: gridMenu
         anchors.fill: parent
-
     }
-    header: MainToolbar { }
 
+    header: MainToolbar {
+        onSelectedFile: {
+            gridMenu.visible = false
+            mainWindow.visible = true
+        }
+    }
 }

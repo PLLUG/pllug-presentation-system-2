@@ -11,12 +11,13 @@ environment:
 
 build_script:
 - cmd: >-
-
     %QT_INSTALL_ROOT%\bin\qtenv2.bat
 
     "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
 
     cd %APPVEYOR_BUILD_FOLDER%\pllug-presentation-system
+
+    git submodule -q update --init
 
     qpm install
 
